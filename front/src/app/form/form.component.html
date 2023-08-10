@@ -1,0 +1,505 @@
+<div class="container tb-10">
+  <form (ngSubmit)="submit()" [formGroup]="multistep">
+    <div *ngIf="step == 1" formGroupName="userDetails">
+      <h4>Informacion del turista</h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Edad:</label>
+        <input type="number" class="form-control" formControlName="edad"  id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="18">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Género</label>
+        <select class="form-control" formControlName="genero">
+          <option value="masculino">Masculino</option>
+          <option value="femenino">Femenino</option>
+          <option value="otro">Otro</option>
+
+        </select>
+      </div>
+
+      <div class="form-check form-check-inline">
+        Procedencia
+      </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="procedencia" id="inlineRadio1" value="cordoba" name="procedencia">
+            <label class="form-check-label" for="inlineRadio1">Córdoba</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="procedencia" id="inlineRadio2" value="otra ciudad" name="procedencia">
+            <label class="form-check-label" for="inlineRadio2">Otra ciudad o localidad de Córdoba</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="procedencia" id="inlineRadio3" value="otra provincia" name="procedencia">
+            <label class="form-check-label" for="inlineRadio3">Otra provincia</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="procedencia" id="inlineRadio3" value="otro pais" name="procedencia">
+            <label class="form-check-label" for="inlineRadio3">Otro país</label>
+          </div>
+      
+          <div class="form-check form-check-inline">
+            ¿Usted vino a Mina Clavero...?
+          </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="acomp" id="inlineRadio1" value="solo" name="acomp">
+                <label class="form-check-label" for="inlineRadio1">Solo</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="acomp" id="inlineRadio2" value="pareja" name="acomp">
+                <label class="form-check-label" for="inlineRadio2">Con su pareja</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="acomp" id="inlineRadio3" value="familia" name="acomp">
+                <label class="form-check-label" for="inlineRadio3">Con su familia</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="acomp" id="inlineRadio3" value="amigos" name="acomp">
+                <label class="form-check-label" for="inlineRadio3">Con amigos</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="acomp" id="inlineRadio3" value="excursion" name="acomp">
+                <label class="form-check-label" for="inlineRadio3">En una excursión</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="acomp" id="inlineRadio3" value="otros" name="acomp">
+                <label class="form-check-label" for="inlineRadio3">Otros</label>
+              </div>
+    </div>
+    <div *ngIf="step == 2" formGroupName="encuesta">
+      <h4>Encuesta </h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">¿A través de qué medio conoció Mina clavero?</label>
+        <p>(Puede marcar más de una opción.)</p>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="difusion" id="inlineRadio1" value="television" name="television">
+          <label class="form-check-label" for="inlineRadio1">Televisión</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="difusion" id="inlineRadio2" value="web" name="pagina web">
+          <label class="form-check-label" for="inlineRadio2">Página Web</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="difusion" id="inlineRadio2" value="radio" name="radio">
+          <label class="form-check-label" for="inlineRadio2">Radio</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="difusion" id="inlineRadio3" value="medios" name="medios">
+          <label class="form-check-label" for="inlineRadio3">Medios Gráficos</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="difusion" id="inlineRadio3" value="facebook" name="facebook">
+          <label class="form-check-label" for="inlineRadio3">Facebook</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="difusion" id="inlineRadio3" value="recomendacion" name="recomendacion">
+          <label class="form-check-label" for="inlineRadio3">Recomendación</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="difusion" id="inlineRadio3" value="otros" name="otros">
+          <label class="form-check-label" for="inlineRadio3">Otros</label>
+        </div>
+
+      </div>
+    </div>
+    <div *ngIf="step == 3" formGroupName="encuesta">
+      <h4>Encuesta </h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">¿Por qué eligió Mina Clavero para pasar sus vacaciones?</label>
+        <p>(Puede marcar más de una opción.)</p>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="motivo" id="inlineRadio1" value="ya conocia" name="ya conocia">
+          <label class="form-check-label" for="inlineRadio1">Porque ya conocía y me gustó el lugar</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="motivo" id="inlineRadio2" value="recomendacion" name="recomendacion">
+          <label class="form-check-label" for="inlineRadio2">Porque me lo recomendaron</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="motivo" id="inlineRadio2" value="promocion" name="promocion">
+          <label class="form-check-label" for="inlineRadio2">Porque ví alguna promoción en los medios</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="motivo" id="inlineRadio3" value="lugar tranquilo" name="lugar tranquilo">
+          <label class="form-check-label" for="inlineRadio3">Porque es un lugar tranquilo para la familia</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="motivo" id="inlineRadio3" value="paisajes" name="paisajes">
+          <label class="form-check-label" for="inlineRadio3">Por sus paisajes</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="motivo" id="inlineRadio3" value="eventos" name="eventos">
+          <label class="form-check-label" for="inlineRadio3">Por sus eventos</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="motivo" id="inlineRadio3" value="amabilidad vecinos" name="amabilidad vecinos">
+          <label class="form-check-label" for="inlineRadio3">Por la amabilidad de los vecinos</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="motivo" id="inlineRadio3" value="otros" name="otros">
+          <label class="form-check-label" for="inlineRadio3">Otro</label>
+        </div>
+
+      </div>
+    </div>
+
+    <div *ngIf="step == 4" formGroupName="encuesta">
+      <h4>En cuanto a Hospedaje </h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">¿Usted llego a Mina Clavero...?</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="reserva" id="inlineRadio1" value="con reserva" name="reserva">
+          <label class="form-check-label" for="inlineRadio1">Con reserva</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="reserva" id="inlineRadio2" value="sin reserva" name="reserva">
+          <label class="form-check-label" for="inlineRadio2">Sin Reserva</label>
+        </div>
+        
+      </div>
+    </div>
+
+    <div *ngIf="step == 5" formGroupName="encuesta">
+      <h4>En cuanto a Hospedaje </h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">¿Qué tipo de hospedaje ha tomado?</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_hospedaje" id="inlineRadio1" value="hotel" name="tipo_hospedaje">
+          <label class="form-check-label" for="inlineRadio1">Hotel</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_hospedaje" id="inlineRadio2" value="cabaña" name="tipo_hospedaje">
+          <label class="form-check-label" for="inlineRadio2"> Cabaña</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_hospedaje" id="inlineRadio2" value="hosteria" name="tipo_hospedaje">
+          <label class="form-check-label" for="inlineRadio2"> Hostería</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_hospedaje" id="inlineRadio2" value="camping" name="tipo_hospedaje">
+          <label class="form-check-label" for="inlineRadio2"> Camping</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_hospedaje" id="inlineRadio2" value="casa de alquiler" name="tipo_hospedaje">
+          <label class="form-check-label" for="inlineRadio2"> Casa de Alquiler</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_hospedaje" id="inlineRadio2" value="otro" name="tipo_hospedaje">
+          <label class="form-check-label" for="inlineRadio2"> Otro</label>
+        </div>
+        
+      </div>
+    </div>
+
+    <div *ngIf="step == 6" formGroupName="encuesta">
+      <h4>En cuanto a Hospedaje </h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">¿Cómo fue el servicio en el hospedaje que contrató?</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="calificacion_hospedaje" id="inlineRadio1" value="excelente" name="calificacion_hospedaje">
+          <label class="form-check-label" for="inlineRadio1">Excelente</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="calificacion_hospedaje" id="inlineRadio2" value="muy bueno" name="calificacion_hospedaje">
+          <label class="form-check-label" for="inlineRadio2">Muy Bueno</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="calificacion_hospedaje" id="inlineRadio2" value="bueno" name="calificacion_hospedaje">
+          <label class="form-check-label" for="inlineRadio2">Bueno</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="calificacion_hospedaje" id="inlineRadio2" value="regular" name="calificacion_hospedaje">
+          <label class="form-check-label" for="inlineRadio2">Regular</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="calificacion_hospedaje" id="inlineRadio2" value="malo" name="calificacion_hospedaje">
+          <label class="form-check-label" for="inlineRadio2">Malo</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="calificacion_hospedaje" id="inlineRadio2" value="muy malo" name="calificacion_hospedaje">
+          <label class="form-check-label" for="inlineRadio2">Muy malo</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="calificacion_hospedaje" id="inlineRadio2" value="pesimo" name="calificacion_hospedaje">
+          <label class="form-check-label" for="inlineRadio2">Pésimo</label>
+        </div>
+        
+      </div>
+    </div>
+
+    <div *ngIf="step == 7" formGroupName="encuesta">
+      <h4>Información Turistica </h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">¿Recibió material informativo de la Secretaria de Turismo en el hospedaje donde se alojó?</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="material_informativo" id="inlineRadio1" value="si" name="material_informativo">
+          <label class="form-check-label" for="inlineRadio1">Si</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="material_informativo" id="inlineRadio2" value="no" name="material_informativo">
+          <label class="form-check-label" for="inlineRadio2">No</label>
+        </div>
+       
+      </div>
+    </div>
+
+    <div *ngIf="step == 8" formGroupName="encuesta">
+      <h4>Información Turistica </h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">¿Usted pidió información en las Oficinas de Turismo de Mina Clavero?</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="uso_oficina" id="inlineRadio1" value="si" name="uso_oficina">
+          <label class="form-check-label" for="inlineRadio1">Si</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="uso_oficina" id="inlineRadio2" value="no" name="uso_oficina">
+          <label class="form-check-label" for="inlineRadio2">No</label>
+        </div>
+       
+      </div>
+    </div>
+
+    <div *ngIf="step == 9" formGroupName="encuesta">
+      <h4>Información Turistica </h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">¿En que oficina lo hizo?</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="oficina" id="inlineRadio1" value="rotonda de ingreso" name="oficina">
+          <label class="form-check-label" for="inlineRadio1">Oficina de la Rotonda de Ingreso</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="oficina" id="inlineRadio2" value="plazoleta merlo" name="oficina">
+          <label class="form-check-label" for="inlineRadio2">Oficina de Plazoleta Merlo</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="oficina" id="inlineRadio2" value="terminal" name="oficina">
+          <label class="form-check-label" for="inlineRadio2">Oficina de la Terminal</label>
+        </div>
+       
+      </div>
+    </div>
+
+    <div *ngIf="step == 10" formGroupName="encuesta">
+      <h4>Información Turistica </h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">¿Qué tipo de Información solicitó en las oficinas?</label>
+        <p>(Puede marcar más de una opción.)</p>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_informacion" id="inlineRadio1" value="hospedaje" name="hospedaje">
+          <label class="form-check-label" for="inlineRadio1">Sobre Hospedaje</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_informacion" id="inlineRadio2" value="paseos" name="paseos">
+          <label class="form-check-label" for="inlineRadio2">Sobre Paseos</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_informacion" id="inlineRadio2" value="eventos" name="eventos">
+          <label class="form-check-label" for="inlineRadio2">Sobre Eventos</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_informacion" id="inlineRadio3" value="gastronomia" name="gastronomia">
+          <label class="form-check-label" for="inlineRadio3">Sobre gastronomía</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_informacion" id="inlineRadio3" value="aventura" name="aventura">
+          <label class="form-check-label" for="inlineRadio3">Sobre Turismo Aventura</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_informacion" id="inlineRadio3" value="servicios" name="servicios">
+          <label class="form-check-label" for="inlineRadio3">Sobre servicios</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_informacion" id="inlineRadio3" value="rutas" name="rutas">
+          <label class="form-check-label" for="inlineRadio3">Sobre rutas</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_informacion" id="inlineRadio3" value="otros" name="otros">
+          <label class="form-check-label" for="inlineRadio3">Otro</label>
+        </div>
+    
+      </div>
+    </div>
+
+    <div *ngIf="step == 11" formGroupName="encuesta">
+      <h4>Información Turistica </h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">¿A través de que medio solicitó información en las Oficinas de Turismo de Mina Clavero?</label>
+        <p>(Puede marcar más de una opción.)</p>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="medio_informacion" id="inlineRadio1" value="personalmente" name="personalmente">
+          <label class="form-check-label" for="inlineRadio1">Personalmente</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="medio_informacion" id="inlineRadio2" value="mail" name="mail">
+          <label class="form-check-label" for="inlineRadio2">Vía mail</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="medio_material" id="inlineRadio3" value="facebook" name="facebook">
+          <label class="form-check-label" for="inlineRadio3">Vía facebook</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="medio_informacion" id="inlineRadio3" value="telefono" name="telefono">
+          <label class="form-check-label" for="inlineRadio3">Vía telefónica</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="medio_informacion" id="inlineRadio3" value="otros" name="otros">
+          <label class="form-check-label" for="inlineRadio3">Otro</label>
+        </div>
+         
+      </div>
+    </div>
+
+    <div *ngIf="step == 12" formGroupName="encuesta">
+      <h4>Información Turistica </h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">¿Que tipo de material se le entregó?</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_material" id="inlineRadio1" value="folletos" name="tipo_material">
+          <label class="form-check-label" for="inlineRadio1">Folletos</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_material" id="inlineRadio2" value="revista" name="tipo_material">
+          <label class="form-check-label" for="inlineRadio2">Revista</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_material" id="inlineRadio2" value="planos" name="tipo_material">
+          <label class="form-check-label" for="inlineRadio2">Planos</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_material" id="inlineRadio2" value="calcomanias" name="tipo_material">
+          <label class="form-check-label" for="inlineRadio2">Calcomanías</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="tipo_material" id="inlineRadio2" value="guias" name="tipo_material">
+          <label class="form-check-label" for="inlineRadio2">Guías de Servicios</label>
+        </div>
+       
+      </div>
+    </div>
+
+    <div *ngIf="step == 13" formGroupName="encuesta">
+      <h4>Informacion Turistica </h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">¿Cómo evalua el tipo de infromación brindada por las Oficinas de Turismo de Mina Clavero?</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="calificacion_informacion" id="inlineRadio1" value="excelente" name="calificacion_informacion">
+          <label class="form-check-label" for="inlineRadio1">Excelente</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="calificacion_informacion" id="inlineRadio2" value="muy bueno" name="calificacion_informacion">
+          <label class="form-check-label" for="inlineRadio2">Muy Bueno</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="calificacion_informacion" id="inlineRadio2" value="bueno" name="calificacion_informacion">
+          <label class="form-check-label" for="inlineRadio2">Bueno</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="calificacion_informacion" id="inlineRadio2" value="regular" name="calificacion_informacion">
+          <label class="form-check-label" for="inlineRadio2">Regular</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="calificacion_informacion" id="inlineRadio2" value="malo" name="calificacion_informacion">
+          <label class="form-check-label" for="inlineRadio2">Malo</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="calificacion_informacion" id="inlineRadio2" value="muy malo" name="calificacion_informacion">
+          <label class="form-check-label" for="inlineRadio2">Muy malo</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="calificacion_informacion" id="inlineRadio2" value="pesimo" name="calificacion_informacion">
+          <label class="form-check-label" for="inlineRadio2">Pésimo</label>
+        </div>
+       
+      </div>
+    </div>
+
+    <div *ngIf="step == 14" formGroupName="encuesta">
+      <h4>Información Turistica </h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Aparte de la información solicitada, ¿se le brindó algún otro tipo de información de su interés?</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="otra_informacion" id="inlineRadio1" value="si" name="otra_informacion">
+          <label class="form-check-label" for="inlineRadio1">Si</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="otra_informacion" id="inlineRadio2" value="no" name="otra_informacion">
+          <label class="form-check-label" for="inlineRadio2">No</label>
+        </div>
+       
+      </div>
+    </div>
+
+    <div *ngIf="step == 15" formGroupName="encuesta">
+      <h4>Información Turistica </h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">¿Que información se le brindó?</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="que_informacion" id="inlineRadio1" value="espectaculos" name="que_informacion">
+          <label class="form-check-label" for="inlineRadio1">Espectáculos en Mina Clavero</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="que_informacion" id="inlineRadio2" value="espectaculos cercanos" name="que_informacion">
+          <label class="form-check-label" for="inlineRadio2">Espectáculos en localidades cercanas</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="que_informacion" id="inlineRadio2" value="recreacion" name="que_informacion">
+          <label class="form-check-label" for="inlineRadio2">Recreación</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="que_informacion" id="inlineRadio2" value="actividades deportivas" name="que_informacion">
+          <label class="form-check-label" for="inlineRadio2">Actividades deportivas</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="que_informacion" id="inlineRadio2" value="turismo aventura" name="que_informacion">
+          <label class="form-check-label" for="inlineRadio2">Turismo Aventura</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="que_informacion" id="inlineRadio2" value="paseos" name="que_informacion">
+          <label class="form-check-label" for="inlineRadio2">Paseos</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="que_informacion" id="inlineRadio3" value="otros" name="que_informacion">
+          <label class="form-check-label" for="inlineRadio3">Otro</label>
+        </div>
+        
+      </div>
+    </div>
+
+    <div *ngIf="step == 16" formGroupName="encuesta">
+      <h4>Sobre Mina Clavero </h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">¿Considera a Mina Clavero como un destino completo en cuanto a su oferta y servicios?</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="calificacion_MC" id="inlineRadio1" value="si" name="calificacion_MC">
+          <label class="form-check-label" for="inlineRadio1">Si</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="calificacion_MC" id="inlineRadio2" value="no" name="calificacion_MC">
+          <label class="form-check-label" for="inlineRadio2">No</label>
+        </div>
+       
+      </div>
+    </div>
+
+    <div *ngIf="step == 17" formGroupName="encuesta">
+      <h4>Sobre Mina Clavero </h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">¿Recomendaría Mina Clavero como destino turístico?</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="recomendaria" id="inlineRadio1" value="si" name="recomendaria">
+          <label class="form-check-label" for="inlineRadio1">Si</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="recomendaria" id="inlineRadio2" value="no" name="recomendaria">
+          <label class="form-check-label" for="inlineRadio2">No</label>
+        </div>
+       
+      </div>
+    </div>
+
+    <a class="btn btn-primary mx-2" *ngIf="step != 1" (click)="previous()">Anterior</a>
+    <button type="submit" class="btn btn-primary mx-2" *ngIf="step != 17">Siguiente</button>
+    <button type="submit" class="btn btn-primary mx-2" *ngIf="step == 17">Enviar</button>
+    <br>
+    <pre>{{multistep.value | json}}</pre>
+  </form>
+</div>

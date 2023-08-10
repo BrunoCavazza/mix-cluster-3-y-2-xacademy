@@ -1,22 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormComponent } from './form/form.component';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 const routes: Routes = [
   {
-    path: 'dashboard',
-    loadChildren: () => import('./pages/dashboard/dashboard.module').
-    then(m => m.DashboardModule),
+    path: 'encuesta',
+    component: FormComponent
   },
   {
-    path: 'login',
-    loadChildren: () => import('./auth/login/login.module').
-      then(m => m.LoginModule),
-    //path: 'login',component:LoginComponent
+    path: 'thankyou',
+    component: ThankyouComponent
   },
-  {
-    path: '**',
-    redirectTo: 'login'
-  }
 ];
 
 @NgModule({
