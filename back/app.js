@@ -7,6 +7,7 @@ const xss = require('xss-clean');
 // Custom Dependencies:
 const helmet = require('helmet');
 const session = require('express-session');
+require('./auth/passport');
 // Winston logger Dependencies
 const cors = require('cors');
 const logger = require('./utils/winston.logger');
