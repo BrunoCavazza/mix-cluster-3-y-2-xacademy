@@ -10,8 +10,6 @@ import { LoginRequest } from 'src/app/services/auth/loginRequest';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  userLoginOn: boolean = false;
   
   loginForm=this.formBuilder.group({
     username: ['',[Validators.required]],
@@ -31,8 +29,8 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls.password;
   }
 
-
   login() {
+    console.log("Logueandose...")
     if (this.loginForm.valid) {
       this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
         next: (userData) => {
@@ -51,4 +49,5 @@ export class LoginComponent implements OnInit {
       this.loginForm.markAllAsTouched();
     }
   }
+  
 }

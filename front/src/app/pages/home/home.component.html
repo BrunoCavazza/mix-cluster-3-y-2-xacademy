@@ -1,0 +1,10 @@
+
+<div *ngIf="!userLoginOn">
+    <p >¡Este es el Home!</p>
+</div>
+<div *ngIf="!userLoginOn">
+    <button type="button" routerLink="/login">Iniciar Sesion</button>
+</div>
+<div *ngIf="userLoginOn">
+    <button type="button" routerLink="/">Cerrar Sesion</button>
+</div>
