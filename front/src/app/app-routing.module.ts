@@ -14,6 +14,11 @@ const routes: Routes = [
     //path: 'login',component:LoginComponent
   },
   {
+    path: 'form',
+    loadChildren: () => import('./pages/form/form.module').
+    then(m => m.FormModule),
+  },
+  {
     path: '**',
     redirectTo: 'login'
   }
