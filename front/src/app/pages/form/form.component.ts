@@ -19,7 +19,7 @@ export class FormComponent {
     graficos: false,
     facebook: false,
     recomendacion: false,
-    otros: String
+    otros: "",
   });
 
   constructor(private _formBuilder: FormBuilder) {}

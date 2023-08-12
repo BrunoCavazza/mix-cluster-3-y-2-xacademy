@@ -1,16 +1,28 @@
 <section class="preguntas" [formGroup]="difusion">
     <h2>¿A través de qué medio conoció el destino Mina Clavero?</h2>
     <p>(Puede marcar más de una opción.)</p>
-    <p><mat-checkbox formControlName="television">Televisión</mat-checkbox></p>
-    <p><mat-checkbox formControlName="pagina">Página Web</mat-checkbox></p>
-    <p><mat-checkbox formControlName="radio">Radio</mat-checkbox></p>
-    <p><mat-checkbox formControlName="graficos">Medios Gráficos</mat-checkbox></p>
-    <p><mat-checkbox formControlName="facebook">Facebook</mat-checkbox></p>
-    <p><mat-checkbox formControlName="recomendacion">Recomendación</mat-checkbox></p>
-    <p><mat-checkbox formControlName="radio">Radio</mat-checkbox></p>
-  </section>
-  
-  <section class="preguntas" [formGroup]="difusion">
+    <p>
+        <mat-checkbox formControlName="television">Televisión</mat-checkbox>
+    </p>
+    <p>
+        <mat-checkbox formControlName="pagina">Página Web</mat-checkbox>
+    </p>
+    <p>
+        <mat-checkbox formControlName="radio">Radio</mat-checkbox>
+    </p>
+    <p>
+        <mat-checkbox formControlName="graficos">Medios Gráficos</mat-checkbox>
+    </p>
+    <p>
+        <mat-checkbox formControlName="facebook">Facebook</mat-checkbox>
+    </p>
+    <p>
+        <mat-checkbox formControlName="recomendacion">Recomendación</mat-checkbox>
+    </p>
+    <p>Otros: <input type="text" formControlName="otros"></p>
+</section>
+
+<section class="preguntas" [formGroup]="difusion">
     <h3>Su respuesta:</h3>
     {{difusion.value | json}}
-  </section>
+</section>
