@@ -1,15 +1,13 @@
 <mat-card class="form-card">
     <mat-card-content>
         <mat-stepper headerPosition="bottom" #stepper>
-            <mat-step [stepControl]="FormGroup2">
-                <form [formGroup]="difusion">
+            <mat-step [stepControl]="FormGroup1">
+                <section [formGroup]="turista">
                     <h1>CUESTIONARIO TURISTAS</h1>
                     <p>Sr./a Turista: La siguiente encuesta es parte del relevamiento que estamos desarrollando desde la Secretaria de Turismo de la Municipalidad de Mina Clavero, que tiene por finalidad conocer cuáles sus preferencias, medios por los ha
                         conocido nuestro destino y nivel de satisfacción; Esta información será de suma importancia para desarrollar planes estratégicos que permitirán hacer de nuestra localidad el mejor lugar para sus vacaciones. Cabe aclarar que los
                         datos son confidenciales y anónimos.</p>
-                    <label for="edad">Edad: </label>
-                    <input matInput type="number">
-                    <div><label for="sexoElegido">Sexo:</label>
+                    <div><label>Sexo:</label>
                         <mat-radio-group class="radio-group" [(ngModel)]="sexoElegido">
                             <mat-radio-button class="radio-button" *ngFor="let sexo of sexos" [value]="sexo">
                                 {{sexo}}
@@ -18,39 +16,20 @@
                         <div>Sexo elegido: {{sexoElegido}}</div>
                     </div>
                     <br>
-                    <form [formGroup]="turista">
-                        <mat-radio-group aria-label="Sexo">
-                            <mat-radio-button value="masculino">Masculino</mat-radio-button>
-                            <mat-radio-button value="femenino">Femenino</mat-radio-button>
-                        </mat-radio-group>
-                    </form>
-                    <br>
+                    <label for="edad">Edad: </label>
+                    <input matInput type="number" formControlName="edad"> <br>
+                    <mat-radio-group aria-label="Sexo">
+                        <mat-radio-button value="masculino">Masculino </mat-radio-button>
+                        <mat-radio-button value="femenino">Femenino </mat-radio-button>
+                    </mat-radio-group> <br>
 
-                    <p>
-                        <mat-checkbox formControlName="television">Televisión</mat-checkbox>
-                    </p>
-                    <p>
-                        <mat-checkbox formControlName="pagina">Página Web</mat-checkbox>
-                    </p>
-                    <p>
-                        <mat-checkbox formControlName="radio">Radio</mat-checkbox>
-                    </p>
-                    <p>
-                        <mat-checkbox formControlName="graficos">Medios Gráficos</mat-checkbox>
-                    </p>
-                    <p>
-                        <mat-checkbox formControlName="facebook">Facebook</mat-checkbox>
-                    </p>
-                    <p>
-                        <mat-checkbox formControlName="recomendacion">Recomendación</mat-checkbox>
-                    </p>
-                    <p>Otros:
-                        <input type="text" formControlName="otros">
-                    </p>
+                    <br>
+                    <h3>Su respuesta:</h3>{{turista.value | json}}
+                    <br>
                     <div>
                         <button mat-button matStepperNext>Siguiente</button>
                     </div>
-                </form>
+                </section>
             </mat-step>
             <mat-step [stepControl]="FormGroup2">
                 <form [formGroup]="difusion">

@@ -26,7 +26,8 @@ export class FormComponent {
     Ctrl1: ['', Validators.required],
   });
   sexos: string[] = ['Masculino', 'Femenino'];
-  sexoElegido: string; // VERIFICAR COMO ESCRIBIR ESTO
+  sexoElegido: string; // VERIFICAR COMO ESCRIBIR ESTO. LISTO!
+
   turista = this._formBuilder.group({
     edad: "",
     masculino: false,
@@ -39,6 +40,7 @@ export class FormComponent {
     provincia: "",
     pais: ""
   });
+
   FormGroup2 = this._formBuilder.group({
     Ctrl2: ['', Validators.required],
   });
@@ -101,7 +103,7 @@ export class FormComponent {
     Ctrl18: ['', Validators.required],
   });
   constructor(private _formBuilder: FormBuilder) {
-    this.sexoElegido = "d";
+    this.sexoElegido = "";
   }
 }
 
