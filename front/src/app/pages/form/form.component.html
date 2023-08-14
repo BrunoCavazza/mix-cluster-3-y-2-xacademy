@@ -1,28 +1,97 @@
-<section class="preguntas" [formGroup]="difusion">
-    <h2>¿A través de qué medio conoció el destino Mina Clavero?</h2>
-    <p>(Puede marcar más de una opción.)</p>
-    <p>
-        <mat-checkbox formControlName="television">Televisión</mat-checkbox>
-    </p>
-    <p>
-        <mat-checkbox formControlName="pagina">Página Web</mat-checkbox>
-    </p>
-    <p>
-        <mat-checkbox formControlName="radio">Radio</mat-checkbox>
-    </p>
-    <p>
-        <mat-checkbox formControlName="graficos">Medios Gráficos</mat-checkbox>
-    </p>
-    <p>
-        <mat-checkbox formControlName="facebook">Facebook</mat-checkbox>
-    </p>
-    <p>
-        <mat-checkbox formControlName="recomendacion">Recomendación</mat-checkbox>
-    </p>
-    <p>Otros: <input type="text" formControlName="otros"></p>
-</section>
+<mat-card class="form-card">
+    <mat-card-content>
+        <mat-stepper headerPosition="bottom" #stepper>
+            <mat-step [stepControl]="FormGroup2">
+                <form [formGroup]="difusion">
+                    <h1>CUESTIONARIO TURISTAS</h1>
+                    <p>Sr./a Turista: La siguiente encuesta es parte del relevamiento que estamos desarrollando desde la Secretaria de Turismo de la Municipalidad de Mina Clavero, que tiene por finalidad conocer cuáles sus preferencias, medios por los ha
+                        conocido nuestro destino y nivel de satisfacción; Esta información será de suma importancia para desarrollar planes estratégicos que permitirán hacer de nuestra localidad el mejor lugar para sus vacaciones. Cabe aclarar que los
+                        datos son confidenciales y anónimos.</p>
+                    <label for="edad">Edad: </label>
+                    <input matInput type="number">
+                    <div><label for="sexoElegido">Sexo:</label>
+                        <mat-radio-group class="radio-group" [(ngModel)]="sexoElegido">
+                            <mat-radio-button class="radio-button" *ngFor="let sexo of sexos" [value]="sexo">
+                                {{sexo}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                        <div>Sexo elegido: {{sexoElegido}}</div>
+                    </div>
+                    <br>
+                    <form [formGroup]="turista">
+                        <mat-radio-group aria-label="Sexo">
+                            <mat-radio-button value="masculino">Masculino</mat-radio-button>
+                            <mat-radio-button value="femenino">Femenino</mat-radio-button>
+                        </mat-radio-group>
+                    </form>
+                    <br>
 
-<section class="preguntas" [formGroup]="difusion">
-    <h3>Su respuesta:</h3>
-    {{difusion.value | json}}
-</section>
+                    <p>
+                        <mat-checkbox formControlName="television">Televisión</mat-checkbox>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="pagina">Página Web</mat-checkbox>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="radio">Radio</mat-checkbox>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="graficos">Medios Gráficos</mat-checkbox>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="facebook">Facebook</mat-checkbox>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="recomendacion">Recomendación</mat-checkbox>
+                    </p>
+                    <p>Otros:
+                        <input type="text" formControlName="otros">
+                    </p>
+                    <div>
+                        <button mat-button matStepperNext>Siguiente</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="FormGroup2">
+                <form [formGroup]="difusion">
+                    <h2>¿A través de qué medio conoció el destino Mina Clavero?</h2>
+                    <p>(Puede marcar más de una opción.)</p>
+                    <p>
+                        <mat-checkbox formControlName="television">Televisión</mat-checkbox>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="pagina">Página Web</mat-checkbox>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="radio">Radio</mat-checkbox>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="graficos">Medios Gráficos</mat-checkbox>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="facebook">Facebook</mat-checkbox>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="recomendacion">Recomendación</mat-checkbox>
+                    </p>
+                    <p>Otros:
+                        <input type="text" formControlName="otros">
+                    </p>
+                    <div>
+                        <button mat-button matStepperPrevious>Anterior</button>
+                        <button mat-button matStepperNext>Siguiente</button>
+                    </div>
+                </form>
+            </mat-step>
+        </mat-stepper>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="form-card">
+    <mat-card-content>
+        <section class="preguntas" [formGroup]="difusion">
+            <h3>Su respuesta:</h3>
+            {{difusion.value | json}}
+        </section>
+    </mat-card-content>
+</mat-card>
