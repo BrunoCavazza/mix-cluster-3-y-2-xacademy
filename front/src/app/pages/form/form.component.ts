@@ -10,7 +10,6 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatRadioModule} from '@angular/material/radio';
 
 
-
 /** @title Checkboxes with reactive forms */
 @Component({
   selector: 'form-app',
@@ -22,7 +21,7 @@ import {MatRadioModule} from '@angular/material/radio';
     MatFormFieldModule, MatStepperModule, MatRadioModule, NgFor],
 })
 export class FormComponent {
-  FormGroup1 = this._formBuilder.group({
+  StepControl1 = this._formBuilder.group({
     Ctrl1: ['', Validators.required],
   });
   sexos: string[] = ['Masculino', 'Femenino'];
@@ -30,20 +29,11 @@ export class FormComponent {
 
   turista = this._formBuilder.group({
     edad: "",
-    masculino: false,
-    femenino: false,
-    cordoba: false,
-    otraCiudad: false,
-    otraProvincia: false,
-    otroPais: false,
-    ciudad: "",
-    provincia: "",
-    pais: ""
+    sexo: "",
+    procedencia: "",
+    acompaniantes: "",    
   });
 
-  FormGroup2 = this._formBuilder.group({
-    Ctrl2: ['', Validators.required],
-  });
   difusion = this._formBuilder.group({
     television: false,
     pagina: false,
@@ -54,6 +44,38 @@ export class FormComponent {
     otros: "",
   });
 
+  motivo = this._formBuilder.group({
+    conocia: false,
+    recomendacion: false,
+    promocion: false,
+    tranquilidad: false,
+    paisajes: false,
+    eventos: false,
+    amabilidad: false,
+    otros: "",
+  });
+
+  reserva = this._formBuilder.group({
+    reserva: "",
+    medioReserva: "",
+  });
+
+  tipoHospedaje = this._formBuilder.group({
+    tipoHospedaje: "",
+    // otrosHospedajes: ""
+  });
+
+  servicio = this._formBuilder.group({
+    servicio: "",
+  })
+
+  materialInformativo = this._formBuilder.group({
+    recibio: "",
+    materialRecibido: ""
+  })
+  FormGroup2 = this._formBuilder.group({
+    Ctrl2: ['', Validators.required],
+  });
   FormGroup3 = this._formBuilder.group({
     Ctrl3: ['', Validators.required],
   });

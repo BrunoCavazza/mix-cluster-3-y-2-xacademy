@@ -4,6 +4,9 @@
     display: flexbox;
     align-items: center;
 }
+.respuestas {
+    background-color: lightgreen;
+}
 
 .form-card {
     max-width: 600px;
