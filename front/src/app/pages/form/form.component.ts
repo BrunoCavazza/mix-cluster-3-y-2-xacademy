@@ -8,6 +8,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatRadioModule} from '@angular/material/radio';
+import { Router } from '@angular/router';
 
 
 /** @title Checkboxes with reactive forms */
@@ -21,17 +22,11 @@ import {MatRadioModule} from '@angular/material/radio';
     MatFormFieldModule, MatStepperModule, MatRadioModule, NgFor],
 })
 export class FormComponent {
-  StepControl1 = this._formBuilder.group({
-    Ctrl1: ['', Validators.required],
-  });
-  sexos: string[] = ['Masculino', 'Femenino'];
-  sexoElegido: string; // VERIFICAR COMO ESCRIBIR ESTO. LISTO!
-
   turista = this._formBuilder.group({
-    edad: "",
-    sexo: "",
-    procedencia: "",
-    acompaniantes: "",
+    edad: ['', Validators.required],
+    sexo: ['', Validators.required],
+    procedencia: ['', Validators.required],
+    acompaniantes: ['', Validators.required],
   });
 
   difusion = this._formBuilder.group({
@@ -56,76 +51,98 @@ export class FormComponent {
   });
 
   reserva = this._formBuilder.group({
-    reserva: "",
+    reserva: ['', Validators.required],
     medioReserva: "",
   });
 
-  tipoHospedaje = this._formBuilder.group({
-    tipoHospedaje: "",
+  tipo_hospedaje = this._formBuilder.group({
+    tipo_hospedaje: ['', Validators.required],
     // otrosHospedajes: ""
   });
 
-  servicio = this._formBuilder.group({
-    servicio: "",
-  })
+  calificacion_hospedaje = this._formBuilder.group({
+    calificacion_hospedaje: ['', Validators.required],
+  });
 
-  materialInformativo = this._formBuilder.group({
-    recibio: "",
-    materialRecibido: ""
-  })
-  FormGroup2 = this._formBuilder.group({
-    Ctrl2: ['', Validators.required],
+  material_informativo = this._formBuilder.group({
+    recibioMaterial: ['', Validators.required],
   });
-  FormGroup3 = this._formBuilder.group({
-    Ctrl3: ['', Validators.required],
+
+  // uso_oficina = this._formBuilder.group({
+  //  uso_oficina: ['', Validators.required]
+  // })
+  
+  oficina = this._formBuilder.group({
+    oficina: ['', Validators.required]
   });
-  FormGroup4 = this._formBuilder.group({
-    Ctrl4: ['', Validators.required],
+
+  tipo_informacion = this._formBuilder.group({
+    hospedaje: false,
+    paseos: false,
+    eventos: false,
+    gastronomia: false,
+    turismo_aventura: false,
+    servicios: false,
+    rutas: false,
+    otros: "",
   });
-  FormGroup5 = this._formBuilder.group({
-    Ctrl5: ['', Validators.required],
+ 
+  medio_informacion = this._formBuilder.group({
+    personalmente: false,
+    email: false,
+    facebook: false,
+    telefonica: false,
+    otros: "",
   });
-  FormGroup6 = this._formBuilder.group({
-    Ctrl6: ['', Validators.required],
+  
+   tipo_material = this._formBuilder.group({
+     folletos: false,
+     revistas: false,
+     planos: false,
+     calcomanias: false,
+    guias: false
+   });
+  
+   calificacion_informacion = this._formBuilder.group({
+    calificacion_informacion: ['', Validators.required]
   });
-  FormGroup7 = this._formBuilder.group({
-    Ctrl7: ['', Validators.required],
+  
+   otra_informacion = this._formBuilder.group({
+    otra_informacion: ['', Validators.required],
+    cuales:""
+   });
+
+   que_informacion = this._formBuilder.group({
+     espectaculos_MC: false,
+     espectaculos_cercanos: false,
+     recreacion: false,
+     deportivas: false,
+     aventuras: false,
+     paseos: false,
+     otros: "",
   });
-  FormGroup8 = this._formBuilder.group({
-    Ctrl8: ['', Validators.required],
+  
+   calificacion_MC = this._formBuilder.group({
+    califiacion_MC: ['', Validators.required],
+    porque: ""
+   });
+  
+   recomendaria = this._formBuilder.group({
+    recomendaria: ['', Validators.required],
+    porque: ""
   });
-  FormGroup9 = this._formBuilder.group({
-    Ctrl9: ['', Validators.required],
+
+  /* StepControl1 = this._formBuilder.group({
+    Ctrl1: ['', Validators.required],
   });
-  FormGroup10 = this._formBuilder.group({
-    Ctrl10: ['', Validators.required],
-  });
-  FormGroup11 = this._formBuilder.group({
-    Ctrl11: ['', Validators.required],
-  });
-  FormGroup12 = this._formBuilder.group({
-    Ctrl12: ['', Validators.required],
-  });
-  FormGroup13 = this._formBuilder.group({
-    Ctrl13: ['', Validators.required],
-  });
-  FormGroup14 = this._formBuilder.group({
-    Ctrl14: ['', Validators.required],
-  });
-  FormGroup15 = this._formBuilder.group({
-    Ctrl15: ['', Validators.required],
-  });
-  FormGroup16 = this._formBuilder.group({
-    Ctrl16: ['', Validators.required],
-  });
-  FormGroup17 = this._formBuilder.group({
-    Ctrl17: ['', Validators.required],
-  });
-  FormGroup18 = this._formBuilder.group({
-    Ctrl18: ['', Validators.required],
-  });
-  constructor(private _formBuilder: FormBuilder) {
-    this.sexoElegido = "";
+  sexos: string[] = ['Masculino', 'Femenino'];
+  sexoElegido: string; // VERIFICAR COMO ESCRIBIR ESTO. LISTO! */
+
+  constructor(private _formBuilder: FormBuilder, private route: Router) {
+    // this.sexoElegido = "";
+  }
+
+  submitForm(){
+    this.route.navigate(['/thankyou']);
   }
 }
-
