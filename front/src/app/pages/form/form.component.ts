@@ -31,7 +31,7 @@ export class FormComponent {
     edad: "",
     sexo: "",
     procedencia: "",
-    acompaniantes: "",    
+    acompaniantes: "",
   });
 
   difusion = this._formBuilder.group({
