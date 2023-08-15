@@ -1,20 +1,36 @@
-body,html {
+/* You can add global styles to this file, and also import other style files */
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-  }
-  
-  app-root {
+}
+
+app-root {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
   }
-  
-  .ng-valid:not(form).ng-touched {
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+.body {
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+}
+ 
+.ng-valid:not(form).ng-touched {
       border-left: 5px solid #42A948;
-  }
+}
   
-  .ng-invalid:not(form).ng-touched {
+.ng-invalid:not(form).ng-touched {
       border-left: 5px solid #A94442;
   
-  }
+}
