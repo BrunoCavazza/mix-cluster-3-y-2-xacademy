@@ -71,7 +71,7 @@ export class FormComponent {
   // uso_oficina = this._formBuilder.group({
   //  uso_oficina: ['', Validators.required]
   // })
-  
+
   oficina = this._formBuilder.group({
     oficina: ['', Validators.required]
   });
@@ -86,7 +86,7 @@ export class FormComponent {
     rutas: false,
     otros: "",
   });
- 
+
   medio_informacion = this._formBuilder.group({
     personalmente: false,
     email: false,
@@ -94,7 +94,7 @@ export class FormComponent {
     telefonica: false,
     otros: "",
   });
-  
+
    tipo_material = this._formBuilder.group({
      folletos: false,
      revistas: false,
@@ -102,11 +102,11 @@ export class FormComponent {
      calcomanias: false,
     guias: false
    });
-  
+
    calificacion_informacion = this._formBuilder.group({
     calificacion_informacion: ['', Validators.required]
   });
-  
+
    otra_informacion = this._formBuilder.group({
     otra_informacion: ['', Validators.required],
     cuales:""
@@ -121,12 +121,12 @@ export class FormComponent {
      paseos: false,
      otros: "",
   });
-  
+
    calificacion_MC = this._formBuilder.group({
-    califiacion_MC: ['', Validators.required],
+    calificacion_MC: ['', Validators.required],
     porque: ""
    });
-  
+
    recomendaria = this._formBuilder.group({
     recomendaria: ['', Validators.required],
     porque: ""
@@ -143,6 +143,7 @@ export class FormComponent {
   }
 
   submitForm(){
-    this.route.navigate(['/thankyou']);
+    // this.route.navigate(['/thankyou']);
+    console.log(this.turista.value, this.difusion.value)
   }
 }
