@@ -9,6 +9,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatRadioModule} from '@angular/material/radio';
 import { Router } from '@angular/router';
+import { FormService } from '../../services/form/form.service';
 
 
 /** @title Checkboxes with reactive forms */
@@ -138,11 +139,42 @@ export class FormComponent {
   sexos: string[] = ['Masculino', 'Femenino'];
   sexoElegido: string; // VERIFICAR COMO ESCRIBIR ESTO. LISTO! */
 
-  constructor(private _formBuilder: FormBuilder, private route: Router) {
+  constructor(private _formBuilder: FormBuilder, private route: Router, private formService: FormService) {}
     // this.sexoElegido = "";
   }
 
   submitForm(){
-    this.route.navigate(['/thankyou']);
+    const formData = {
+      turista: this.turista.value,
+      difusion: this.difusion.value,
+      motivo: this.motivo.value,
+      reserva: this.reserva.value,
+      tipo_hospedaje: this.tipo_hospedaje.value,
+      calificacion_hospedaje: this.calificacion_hospedaje.value,
+      material_informativo: this.material_informativo.value,
+      oficina: this.oficina.value,
+      tipo_informacion: this.tipo_informacion.value,
+      medio_informacion: this.medio_informacion.value,
+      tipo_material: this.tipo_material.value,
+      calificacion_informacion: this.calificacion_informacion.value,
+      otra_informacion: this.otra_informacion.value,
+      que_informacion: this.que_informacion.value,
+      calificacion_MC: this.calificacion_MC.value,
+      recomendaria: this.recomendaria.value,
+    };
+  
+    const jsonData = JSON.stringify(formData);
+  
+
+  
+    this.FormService.enviarFormulario(formData).subscribe(
+      response => {
+        console.log('Datos enviados correctamente', response);
+        this.route.navigate(['/thankyou']);
+      },
+      error => {
+        console.error('Error al enviar los datos', error);
+      }
+    );
+
   }
-}
