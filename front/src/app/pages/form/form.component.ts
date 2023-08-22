@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import {FormBuilder, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {JsonPipe, NgFor} from '@angular/common';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -144,6 +144,6 @@ export class FormComponent {
 
   submitForm(){
     // this.route.navigate(['/thankyou']);
-    console.log(this.turista.value, this.difusion.value)
+    console.log(this.turista.value, this.difusion.value, this.motivo.value)
   }
 }
