@@ -136,7 +136,7 @@ export class FormComponent {
     Ctrl1: ['', Validators.required],
   });
   sexos: string[] = ['Masculino', 'Femenino'];
-  sexoElegido: string; // VERIFICAR COMO ESCRIBIR ESTO. LISTO! */
+  sexoElegido: string; */
 
   constructor(private _formBuilder: FormBuilder, private route: Router) {
     // this.sexoElegido = "";

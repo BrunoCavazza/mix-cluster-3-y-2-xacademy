@@ -2,7 +2,8 @@
     <mat-card-content>
         <form (ngSubmit)="submitForm">
             <mat-stepper headerPosition="bottom" #stepper>
-                <mat-step [stepControl]="turista">
+                <mat-step>
+                    <!--PASO 1: TURISTA-->
                     <section [formGroup]="turista">
                         <h1>CUESTIONARIO TURISTAS</h1>
                         <p>Sr./a Turista: La siguiente encuesta es parte del relevamiento que estamos desarrollando desde la Secretaria de Turismo de la Municipalidad de Mina Clavero, que tiene por finalidad conocer cuáles sus preferencias, medios por los
@@ -31,15 +32,17 @@
                             <mat-radio-button value="En una excursión">En una excursión</mat-radio-button><br>
                             <mat-radio-button value="Otros">Otros: <input type="text" placeholder="¿Cuáles?" formControlName="acompaniantes"></mat-radio-button><br>
                         </mat-radio-group> <br>
-                        <div>
-                            <button mat-button matStepperNext>Siguiente</button>
-                        </div><br>
-                        <mat-card-content class="respuestas">
-                            <h3>Su respuesta:</h3>{{turista.value | json}}
-                        </mat-card-content><br>
                     </section>
+                    <div>
+                        <button mat-raised-button color=primary matStepperNext>Siguiente</button>
+                    </div><br>
+                    <mat-card-content class="respuestas">
+                        <h3>Su respuesta:</h3>{{turista.value | json}}
+                    </mat-card-content><br>
                 </mat-step>
-                <mat-step [stepControl]="difusion">
+                <!--FIN PASO 1: TURISTA-->
+                <mat-step>
+                    <!--PASO 2: MEDIOS-->
                     <section [formGroup]="difusion">
                         <h2>¿A través de qué medio conoció el destino Mina Clavero?</h2>
                         <p>(Puede marcar más de una opción.)</p>
@@ -62,17 +65,20 @@
                             <mat-checkbox formControlName="recomendacion">Recomendación</mat-checkbox>
                         </p>
                         <p>Otros: <input type="text" formControlName="otros"></p><br>
-                        <div>
-                            <button mat-button matStepperPrevious>Anterior</button>
-                            <button mat-button matStepperNext>Siguiente</button>
-                        </div><br>
-                        <mat-card-content class="respuestas">
-                            <h3>Su respuesta:</h3>{{difusion.value | json}}
-                        </mat-card-content><br>
                     </section>
+                    <div>
+                        <button mat-button color=primary matStepperPrevious>Anterior</button>
+                        <button mat-raised-button color=primary matStepperNext>Siguiente</button>
+                    </div><br>
+                    <mat-card-content class="respuestas">
+                        <h3>Su respuesta:</h3>{{difusion.value | json}}
+                    </mat-card-content><br>
+
                 </mat-step>
-                <mat-step [stepControl]="motivo">
-                    <form [formGroup]="motivo">
+                <!--FIN PASO 2: MEDIOS-->
+                <mat-step>
+                    <!--PASO 3: MOTIVOS-->
+                    <section [formGroup]="motivo">
                         <h2>¿Por qué motivo eligió Mina Clavero para pasar sus vacaciones?</h2>
                         <p>(Puede marcar más de una opción.)</p>
                         <p>
@@ -97,16 +103,19 @@
                             <mat-checkbox formControlName="amabilidad">Por la amabilidad de los vecinos</mat-checkbox>
                         </p>
                         <p>Otros: <input type="text" formControlName="otros"></p>
-                        <div>
-                            <button mat-button matStepperPrevious>Anterior</button>
-                            <button mat-button matStepperNext>Siguiente</button>
-                        </div><br>
-                        <mat-card-content class="respuestas">
-                            <h3>Su respuesta:</h3>{{motivo.value | json}}
-                        </mat-card-content><br>
-                    </form>
+                    </section>
+                    <div>
+                        <button mat-button color=primary matStepperPrevious>Anterior</button>
+                        <button mat-raised-button color=primary matStepperNext>Siguiente</button>
+                    </div><br>
+                    <mat-card-content class="respuestas">
+                        <h3>Su respuesta:</h3>{{motivo.value | json}}
+                    </mat-card-content><br>
                 </mat-step>
-                <mat-step [stepControl]="reserva">
+                <!--FIN PASO 3: MOTIVOS-->
+
+                <mat-step>
+                    <!--PASO 4: HOSPEDAJE-->
                     <h2>En cuanto a su Hospedaje: ¿Ud. llegó a Mina Clavero?</h2>
                     <section [formGroup]="reserva">
                         <mat-radio-group formControlName="reserva">
@@ -114,15 +123,6 @@
                             <mat-radio-button value="Con reserva">Con Reserva. ¿A través de que medio hizo la reserva? <input type="text" placeholder="Escriba aquí" formControlName="medioReserva"></mat-radio-button><br>
                         </mat-radio-group>
                     </section><br>
-                    <div>
-                        <button mat-button matStepperPrevious>Anterior</button>
-                        <button mat-button matStepperNext>Siguiente</button>
-                    </div><br>
-                    <mat-card-content class="respuestas">
-                        <h3>Su respuesta:</h3>{{reserva.value | json}}
-                    </mat-card-content><br>
-                </mat-step>
-                <mat-step [stepControl]="tipo_hospedaje">
                     <h2>¿Qué tipo de Hospedaje a tomado?</h2>
                     <section [formGroup]="tipo_hospedaje">
                         <mat-radio-group formControlName="tipo_hospedaje">
@@ -134,15 +134,6 @@
                             <mat-radio-button value="Otro_hospedaje">Otro: ¿Cuál? <input type="text" placeholder="Escriba aquí" formControlName="tipo_hospedaje"></mat-radio-button><br>
                         </mat-radio-group>
                     </section><br>
-                    <div>
-                        <button mat-button matStepperPrevious>Anterior</button>
-                        <button mat-button matStepperNext>Siguiente</button>
-                    </div><br>
-                    <mat-card-content class="respuestas">
-                        <h3>Su respuesta:</h3>{{tipo_hospedaje.value | json}}
-                    </mat-card-content><br>
-                </mat-step>
-                <mat-step [stepControl]="calificacion_hospedaje">
                     <h2>¿Cómo es el servicio en el hospedaje que ha contratado?</h2>
                     <section [formGroup]="calificacion_hospedaje">
                         <mat-radio-group formControlName="calificacion_hospedaje">
@@ -155,15 +146,6 @@
                             <mat-radio-button value="Pesima">Pésima</mat-radio-button><br>
                         </mat-radio-group>
                     </section><br>
-                    <div>
-                        <button mat-button matStepperPrevious>Anterior</button>
-                        <button mat-button matStepperNext>Siguiente</button>
-                    </div><br>
-                    <mat-card-content class="respuestas">
-                        <h3>Su respuesta:</h3>{{calificacion_hospedaje.value | json}}
-                    </mat-card-content><br>
-                </mat-step>
-                <mat-step [stepControl]="material_informativo">
                     <h2>¿Recibió material informativo de la Secretaría de Turismo en el hospedaje donde se alojó?</h2>
                     <section [formGroup]="material_informativo">
                         <mat-radio-group formControlName="recibioMaterial">
@@ -172,16 +154,19 @@
                         </mat-radio-group>
                     </section><br>
                     <div>
-                        <button mat-button matStepperPrevious>Anterior</button>
-                        <button mat-button matStepperNext>Siguiente</button>
+                        <button mat-button color=primary matStepperPrevious>Anterior</button>
+                        <button mat-raised-button color=primary matStepperNext>Siguiente</button>
                     </div><br>
                     <mat-card-content class="respuestas">
-                        <h3>Su respuesta:</h3>{{material_informativo.value | json}}
+                        <h3>Su respuesta:</h3>
+                        {{reserva.value | json}} {{tipo_hospedaje.value | json}} {{calificacion_hospedaje.value | json}} {{material_informativo.value | json}}
                     </mat-card-content><br>
                 </mat-step>
+                <!--FIN PASO 4: HOSPEDAJE-->
                 <!-- Hasta aquí primera parte Gastón -->
                 <mat-step [stepControl]="oficina">
-                    <form [formGroup]="oficina">
+                    <!--PASO 5: OFICINA-->
+                    <section [formGroup]="oficina">
                         <h2>¿Ud. pidió información en las oficinas de Turismo de Mina Clavero? ¿En que oficina lo hizo?</h2>
                         <mat-radio-group formControlName="oficina" aria-label="Seleccione una opción">
                             <mat-radio-button value="No">No</mat-radio-button><br>
@@ -189,17 +174,8 @@
                             <mat-radio-button value="Merlo">Oficina de Plazoleta Merlo</mat-radio-button><br>
                             <mat-radio-button value="Terminal">Oficina de la Terminal</mat-radio-button>
                         </mat-radio-group>
-                        <div>
-                            <button mat-button matStepperPrevious>Anterior</button>
-                            <button mat-button matStepperNext>Siguiente</button>
-                        </div><br>
-                        <mat-card-content class="respuestas">
-                            <h3>Su respuesta:</h3>{{oficina.value | json}}
-                        </mat-card-content>
-                    </form>
-                </mat-step>
-                <mat-step [stepControl]="tipo_informacion">
-                    <form [formGroup]="tipo_informacion">
+                    </section><br>
+                    <section [formGroup]="tipo_informacion">
                         <h2>¿Qué tipo de información solicitó en las oficinas de Turismo de Mina Clavero?</h2>
                         <p>(Puede marcar más de una opción.)</p>
                         <p>
@@ -224,17 +200,8 @@
                             <mat-checkbox formControlName="rutas">Rutas</mat-checkbox>
                         </p>
                         <p>Otros: <input type="text" formControlName="otros"></p>
-                        <div>
-                            <button mat-button matStepperPrevious>Anterior</button>
-                            <button mat-button matStepperNext>Siguiente</button>
-                        </div><br>
-                        <mat-card-content class="respuestas">
-                            <h3>Su respuesta:</h3>{{tipo_informacion.value | json}}
-                        </mat-card-content>
-                    </form>
-                </mat-step>
-                <mat-step [stepControl]="medio_informacion">
-                    <form [formGroup]="medio_informacion">
+                    </section><br>
+                    <section [formGroup]="medio_informacion">
                         <h2>¿A través de que medio solicitó información en las Oficinas de Turismo de Mina Clavero?</h2>
                         <p>(Puede marcar más de una opción.)</p>
                         <p>
@@ -250,17 +217,9 @@
                             <mat-checkbox formControlName="telefonica">Vía Telefónica</mat-checkbox>
                         </p>
                         <p>Otros: <input type="text" formControlName="otros"></p>
-                        <div>
-                            <button mat-button matStepperPrevious>Anterior</button>
-                            <button mat-button matStepperNext>Siguiente</button>
-                        </div><br>
-                        <mat-card-content class="respuestas">
-                            <h3>Su respuesta:</h3>{{medio_informacion.value | json}}
-                        </mat-card-content>
-                    </form>
-                </mat-step>
-                <mat-step [stepControl]="tipo_material">
-                    <form [formGroup]="tipo_material">
+                    </section><br>
+
+                    <section [formGroup]="tipo_material">
                         <h2>¿Qué tipo de material se le entregó en las Oficinas de Turismo?</h2>
                         <p>(Puede marcar más de una opción.)</p>
                         <p>
@@ -278,17 +237,9 @@
                         <p>
                             <mat-checkbox formControlName="guias">Guías de Servicios</mat-checkbox>
                         </p>
-                        <div>
-                            <button mat-button matStepperPrevious>Anterior</button>
-                            <button mat-button matStepperNext>Siguiente</button>
-                        </div><br>
-                        <mat-card-content class="respuestas">
-                            <h3>Su respuesta:</h3>{{tipo_material.value | json}}
-                        </mat-card-content>
-                    </form>
-                </mat-step>
-                <mat-step [stepControl]="calificacion_informacion">
-                    <form [formGroup]="calificacion_informacion">
+                    </section><br>
+
+                    <section [formGroup]="calificacion_informacion">
                         <h2>¿Cómo evalua el tipo el tipo de información brindada por las Oficinas de Turismo de Mina Clavero?</h2>
                         <mat-radio-group formControlName="calificacion_informacion" aria-label="Seleccione una opción">
                             <mat-radio-button value="Excelente">Excelente</mat-radio-button><br>
@@ -299,34 +250,17 @@
                             <mat-radio-button value="Muy_mala">Muy Mala</mat-radio-button><br>
                             <mat-radio-button value="Pesima">Pésima</mat-radio-button>
                         </mat-radio-group>
-                        <div>
-                            <button mat-button matStepperPrevious>Anterior</button>
-                            <button mat-button matStepperNext>Siguiente</button>
-                        </div><br>
-                        <mat-card-content class="respuestas">
-                            <h3>Su respuesta:</h3>{{calificacion_informacion.value | json}}
-                        </mat-card-content>
-                    </form>
-                </mat-step>
-                <mat-step [stepControl]="otra_informacion">
-                    <form [formGroup]="otra_informacion">
+                    </section><br>
+
+                    <section [formGroup]="otra_informacion">
                         <h2>Aparte de la información solicitada, ¿Se le brindó algún otro tipo de información de su interés?</h2>
                         <mat-radio-group formControlName="otra_informacion" aria-label="Seleccione una opción">
                             <mat-radio-button value="Si">Si</mat-radio-button><br>
                             <mat-radio-button value="No">No</mat-radio-button><br>
                             <p>¿Cuáles?: <input type="text" placeholder="Escriba aquí" formControlName="cuales"></p>
                         </mat-radio-group>
-                        <div>
-                            <button mat-button matStepperPrevious>Anterior</button>
-                            <button mat-button matStepperNext>Siguiente</button>
-                        </div><br>
-                        <mat-card-content class="respuestas">
-                            <h3>Su respuesta:</h3>{{otra_informacion.value | json}}
-                        </mat-card-content>
-                    </form>
-                </mat-step>
-                <mat-step [stepControl]="que_informacion">
-                    <form [formGroup]="que_informacion">
+                    </section><br>
+                    <section [formGroup]="que_informacion">
                         <h2>¿Qué información se le brindó?</h2>
                         <p>(Puede marcar más de una opción.)</p>
                         <p>
@@ -348,49 +282,47 @@
                             <mat-checkbox formControlName="paseos">Paseos</mat-checkbox>
                         </p>
                         <p>Otros: <input type="text" formControlName="otros"></p>
-                        <div>
-                            <button mat-button matStepperPrevious>Anterior</button>
-                            <button mat-button matStepperNext>Siguiente</button>
-                        </div><br>
-                        <mat-card-content class="respuestas">
-                            <h3>Su respuesta:</h3>{{que_informacion.value | json}}
-                        </mat-card-content>
-                    </form>
+                    </section><br>
+
+                    <div>
+                        <button mat-button matStepperPrevious>Anterior</button>
+                        <button mat-raised-button color=primary matStepperNext>Siguiente</button>
+                    </div><br>
+                    <mat-card-content class="respuestas">
+                        <h3>Su respuesta:</h3>
+                        {{oficina.value | json}} {{tipo_informacion.value | json}} {{medio_informacion.value | json}} {{tipo_material.value | json}} {{calificacion_informacion.value | json}} {{otra_informacion.value | json}} {{que_informacion.value | json}}
+                    </mat-card-content>
                 </mat-step>
-                <mat-step [stepControl]="calificacion_MC">
-                    <form [formGroup]="calificacion_MC">
+                <!-- FIN PASO 5: OFICINA -->
+                <mat-step>
+                    <!-- PASO 6: DESTINO -->
+                    <section [formGroup]="calificacion_MC">
                         <h2>¿Considera a Mina Clavero como un destino completo en cuanto a su oferta y servicios?</h2>
                         <mat-radio-group formControlName="calificacion_MC" aria-label="Seleccione una opción">
                             <mat-radio-button value="Si">Si</mat-radio-button><br>
                             <mat-radio-button value="No">No</mat-radio-button><br>
                             <p>¿Porque?: <input type="text" placeholder="Escriba aquí" formControlName="porque"></p>
                         </mat-radio-group>
-                        <div>
-                            <button mat-button matStepperPrevious>Anterior</button>
-                            <button mat-button matStepperNext>Siguiente</button>
-                        </div><br>
-                        <mat-card-content class="respuestas">
-                            <h3>Su respuesta:</h3>{{calificacion_MC.value | json}}
-                        </mat-card-content>
-                    </form>
-                </mat-step>
-                <mat-step [stepControl]="recomendaria">
-                    <form [formGroup]="recomendaria">
+                    </section>
+                    <section [formGroup]="recomendaria">
                         <h2>¿Recomendaría Mina Clavero como destino turístico?</h2>
                         <mat-radio-group formControlName="recomendaria" aria-label="Seleccione una opción">
                             <mat-radio-button value="Si">Si</mat-radio-button><br>
                             <mat-radio-button value="No">No</mat-radio-button><br>
                             <p>¿Por qué?: <input type="text" placeholder="Escriba aquí" formControlName="porque"></p>
                         </mat-radio-group>
-                        <div>
-                            <button mat-button matStepperPrevious>Anterior</button>
-                            <button mat-button (click)="submitForm()" matStepperNext>Finalizar</button>
-                        </div><br>
-                        <mat-card-content class="respuestas">
-                            <h3>Su respuesta:</h3>{{recomendaria.value | json}}
-                        </mat-card-content>
-                    </form>
+                    </section>
+                    <div>
+                        <button mat-button matStepperPrevious>Anterior</button>
+                        <button mat-raised-button color=primary (click)="submitForm()" matStepperNext>Finalizar</button>
+                    </div><br>
+                    <mat-card-content class="respuestas">
+                        <h3>Su respuesta:</h3>
+                        {{calificacion_MC.value | json}} {{recomendaria.value | json}}
+                    </mat-card-content>
                 </mat-step>
+                <!-- FIN PASO 6: DESTINO -->
+
                 <!-- Fin segunda parte Agustina-->
             </mat-stepper>
         </form>
@@ -398,12 +330,12 @@
 </mat-card>
 
 <!-- EJEMPLO de Radio Button con ngModel
-    <div><label>Sexo:</label>
-    <mat-radio-group class="radio-group" [(ngModel)]="sexoElegido">
-        <mat-radio-button class="radio-button" *ngFor="let sexo of sexos" [value]="sexo">
-            {{sexo}}
-        </mat-radio-button>
-    </mat-radio-group>
-    <div>Sexo elegido: {{sexoElegido}}</div>
-    </div>
+	<div><label>Sexo:</label>
+	<mat-radio-group class="radio-group" [(ngModel)]="sexoElegido">
+		<mat-radio-button class="radio-button" *ngFor="let sexo of sexos" [value]="sexo">
+			{{sexo}}
+		</mat-radio-button>
+	</mat-radio-group>
+	<div>Sexo elegido: {{sexoElegido}}</div>
+	</div>
 -->
