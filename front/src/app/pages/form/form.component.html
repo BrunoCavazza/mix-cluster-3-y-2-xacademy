@@ -2,7 +2,7 @@
     <mat-card-content>
         <form (ngSubmit)="submitForm(turista.value, difusion.value, motivo.value, reserva.value, tipo_hospedaje.value, calificacion_hospedaje.value, material_informativo.value, oficina.value, tipo_inform.value, medio_informacion.value, tipo_material.value, calificacion_informacion.value, otra_informacion.value, que_informacion.value, calificacion_MC.value, recomendaria.value)">
             <mat-stepper headerPosition="bottom" #stepper>
-                <!-- ------TURISTA-------- -->
+                <!-- Paso 1: TURISTA -->
                 <mat-step [stepControl]="turista">
                     <form [formGroup]="turista">
                         <h1>CUESTIONARIO TURISTAS</h1>
@@ -45,7 +45,7 @@ formControlName="procedencia"></mat-radio-button><br>
                     </form>
                 </mat-step>
 
-                <!-- ------MEDIO-------- -->
+                <!-- Paso 2: MEDIO -->
                 <mat-step [stepControl]="difusion">
                     <form [formGroup]="difusion">
                         <h2>¿A través de qué medio conoció el destino Mina Clavero?</h2>
@@ -79,7 +79,7 @@ formControlName="procedencia"></mat-radio-button><br>
                     </form>
                 </mat-step>
 
-                <!-- ------MOTIVO-------- -->
+                <!-- Paso 3: MOTIVO -->
                 <mat-step [stepControl]="motivo">
                     <form [formGroup]="motivo">
                         <h2>¿Por qué motivo eligió Mina Clavero para pasar sus vacaciones?</h2>
@@ -116,7 +116,7 @@ formControlName="procedencia"></mat-radio-button><br>
                     </form>
                 </mat-step>
 
-                <!-- ------HOSPEDAJE-------- -->
+                <!-- Paso 4: HOSPEDAJE -->
                 <mat-step [stepControl]="reserva">
                     <h2>En cuanto a su Hospedaje: ¿Ud. llegó a Mina Clavero?</h2>
                     <form [formGroup]="reserva">
@@ -182,7 +182,7 @@ formControlName="tipo_hospedaje"></mat-radio-button><br>
                 </mat-step>
                 
 
-                <!-- -----------OFICINA------------ -->
+                <!-- Paso 5: OFICINA -->
                 <mat-step [stepControl]="oficina">
                     <form [formGroup]="oficina">
                         <h2>¿Ud. pidió información en las oficinas de Turismo de Mina Clavero? ¿En que oficina lo hizo?</h2>
@@ -335,7 +335,7 @@ formControlName="tipo_hospedaje"></mat-radio-button><br>
                 </mat-step>
 
 
-                <!-- -------------RECOMIENDA----------- -->
+                <!-- Paso 6: RECOMIENDA -->
                 <mat-step [stepControl]="calificacion_MC">
                     <form [formGroup]="calificacion_MC">
                         <h2>¿Considera a Mina Clavero como un destino completo en cuanto a su oferta y servicios?</h2>
