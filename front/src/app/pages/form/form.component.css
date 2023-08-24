@@ -1,0 +1,37 @@
+.preguntas {
+    padding: 40px;
+    max-width: 600px;
+    display: flexbox;
+    align-items: center;
+}
+.respuestas {
+    background-color: lightgreen;
+}
+
+.form-card {
+    max-width: 600px;
+    margin-bottom: 8px;
+    background-color: #BFD7F6;
+    display: flexbox;
+    align-items: center;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+}
+
+.radio-button {
+    margin: 5px;
+}
+
+.submit {
+    background-color: rgb(63, 224, 224);
+
+}
+
+.submit:hover{
+    background-color: rgb(68, 187, 187);
+}
