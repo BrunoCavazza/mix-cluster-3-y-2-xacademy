@@ -1,0 +1,39 @@
+.contenedor {
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: rgb(51, 101, 194);
+    opacity: 0.95;
+    padding-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+    border-radius: 15px;
+}
+
+h1{
+    font-size: 30px;
+    margin-top: 15px;
+    color: white;
+}
+
+p{
+    color: white;
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.button-home{
+    background-color: white;
+    color: rgb(51, 101, 194);
+    padding: 5px 20px;
+    font-size: 18px;
+}
+
+.button-home:hover{
+    background-color: rgb(12, 46, 110);
+    color: white;
+}

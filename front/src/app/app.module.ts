@@ -11,7 +11,6 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddTokenInterceptor } from './utils/add-token.interceptor';
-import { ThankyouComponent } from './pages/thankyou/thankyou.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { ThankyouComponent } from './pages/thankyou/thankyou.component';
     HeaderComponent,
     FooterComponent,
     DashboardComponent,
-    ThankyouComponent,
   ],
   imports: [
     BrowserModule,
