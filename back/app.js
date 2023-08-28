@@ -1,3 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/order */
+/* eslint-disable semi */
 require('dotenv').config();
 
 // Express Dependencies:
@@ -7,10 +10,11 @@ const xss = require('xss-clean');
 // Custom Dependencies:
 const helmet = require('helmet');
 const session = require('express-session');
+require('./auth/passport');
 // Winston logger Dependencies
 const cors = require('cors');
 const logger = require('./utils/winston.logger');
-
+const bodyParser = require('body-parser')
 // Models:
 const models = require('./models');
 
@@ -22,6 +26,8 @@ const validateEnv = require('./utils/validateEnv');
 
 const app = express();
 validateEnv.validate();
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json());
 app.use(helmet());
 app.use(helmet.ieNoOpen());
 // Sets "Strict-Transport-Security: max-age=5184000; includeSubDomains".
@@ -58,19 +64,19 @@ app.use(express.urlencoded(
 ));
 
 // Cors configuration
-const whitelist = process.env.CORS.split(' ');
+// const whitelist = process.env.CORS.split(' ');
 
-const corsOptions = {
-  origin(origin, callback) {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      logger.api.error('Not allowed by CORS', { origin });
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-};
-app.use(cors(corsOptions));
+// const corsOptions = {
+//   origin(origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1 || !origin) {
+//       callback(null, true);
+//     } else {
+//       logger.api.error('Not allowed by CORS', { origin });
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+// };
+app.use(cors({ credentials: true, origin: true }));
 
 if (config.environment === 'production') {
   app.set('trust proxy', 1); // trust first proxy

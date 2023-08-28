@@ -1,0 +1,117 @@
+
+h1{
+    text-align: center;
+}
+
+.preguntas {
+    padding: 40px;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.form-card {
+    max-width: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: rgb(51, 101, 194);
+    opacity: 0.95;
+    padding-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+
+.form-content{
+    background-color: rgb(51, 101, 194, 50);
+    color: white;
+    border-radius: 10px;
+    padding-bottom: 10px;
+}
+
+
+
+/* Radios */
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+}
+
+.mat-radio-button {
+    margin: 2px;
+}
+
+.text-radio{
+    font-size: 17px;
+}
+
+
+/* INPUTS */
+
+input{
+    border-radius: 10px;
+    border-color: white;
+    border-top: white;
+    border-left: white;
+    height: 25px;
+    margin-left: 10px;
+}
+
+.inputEdad{
+    width: 60px;   
+}
+
+.inputText{
+    width: 250px;
+}
+
+
+/* Labels */
+label{
+    font-size: 17px;
+    padding-bottom: 10px;
+}
+
+
+/* Botones */
+
+.buttonNext{
+    background-color: white;
+    color: rgb(51, 101, 194);
+    padding: 5px 20px;
+    font-size: 18px;
+}
+
+.buttonNext:hover{
+    background-color: rgb(12, 46, 110);
+    color: white;
+}
+
+.buttonBack{
+    background-color: white;
+    color: rgb(51, 101, 194);
+    padding: 5px 20px;
+    font-size: 18px;
+}
+
+.buttonBack:hover{
+    background-color: rgb(12, 46, 110);
+    color: white;
+}
+
+.button-Next-Content{
+    display: flex;
+    justify-content: end;
+}
+
+.botonera{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;   
+}
