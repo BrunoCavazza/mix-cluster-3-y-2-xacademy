@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable consistent-return */
@@ -14,7 +15,7 @@ const errors = require('../middleware/error_handler.middleware');
 const { sequelize } = require('../models');
 const surveyController = require('../controllers/surveyControllers');
 
-// const Survey = require('../models/survey')(sequelize, DataTypes)
+const Survey = require('../models/survey')(sequelize, DataTypes);
 const User = require('../models/user')(sequelize, DataTypes);
 const validateToken = require('./validate-token');
 
@@ -25,9 +26,9 @@ const app = Express();
 // use=
 app.get('/getall', validateToken, async (req, res) => {
   try {
-    const users = await User.findAll();
+    const survey = await Survey.findAll();
 
-    res.json(users);
+    res.json(survey);
   } catch (err) {
     res.json('no funciona de nuevo');
   }

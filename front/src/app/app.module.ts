@@ -9,7 +9,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddTokenInterceptor } from './utils/add-token.interceptor';
 
 @NgModule({
@@ -18,7 +17,6 @@ import { AddTokenInterceptor } from './utils/add-token.interceptor';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    DashboardComponent,
   ],
   imports: [
     BrowserModule,

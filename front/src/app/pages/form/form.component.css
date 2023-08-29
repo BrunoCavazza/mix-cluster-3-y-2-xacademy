@@ -1,5 +1,4 @@
-
-h1{
+h1 {
     text-align: center;
 }
 
@@ -24,14 +23,12 @@ h1{
     position: relative;
 }
 
-
-.form-content{
+.form-content {
     background-color: rgb(51, 101, 194, 50);
     color: white;
     border-radius: 10px;
     padding-bottom: 10px;
 }
-
 
 
 /* Radios */
@@ -47,14 +44,14 @@ h1{
     margin: 2px;
 }
 
-.text-radio{
+.text-radio {
     font-size: 17px;
 }
 
 
 /* INPUTS */
 
-input{
+input {
     border-radius: 10px;
     border-color: white;
     border-top: white;
@@ -63,17 +60,18 @@ input{
     margin-left: 10px;
 }
 
-.inputEdad{
-    width: 60px;   
+.inputEdad {
+    width: 60px;
 }
 
-.inputText{
+.inputText {
     width: 250px;
 }
 
 
 /* Labels */
-label{
+
+label {
     font-size: 17px;
     padding-bottom: 10px;
 }
@@ -81,37 +79,42 @@ label{
 
 /* Botones */
 
-.buttonNext{
+.buttonNext {
     background-color: white;
     color: rgb(51, 101, 194);
     padding: 5px 20px;
     font-size: 18px;
 }
 
-.buttonNext:hover{
+.buttonNext:hover {
     background-color: rgb(12, 46, 110);
     color: white;
 }
 
-.buttonBack{
+.buttonBack {
     background-color: white;
     color: rgb(51, 101, 194);
     padding: 5px 20px;
     font-size: 18px;
 }
 
-.buttonBack:hover{
-    background-color: rgb(12, 46, 110);
+.buttonBack:hover {
+    background-color: #0c2e6e;
     color: white;
 }
 
-.button-Next-Content{
+.button-Next-Content {
     display: flex;
     justify-content: end;
 }
 
-.botonera{
+.botonera {
     display: flex;
     align-items: center;
-    justify-content: space-between;   
+    justify-content: space-between;
+}
+
+.requerido {
+    color: #51ff00;
+    font-size: 18px;
 }
