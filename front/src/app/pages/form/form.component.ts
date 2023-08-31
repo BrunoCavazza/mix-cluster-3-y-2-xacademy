@@ -8,6 +8,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatDatepickerModule} from '@angular/material/datepicker'; //SPRINT 3
+import {MatNativeDateModule} from '@angular/material/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FormService } from '../../services/form.service';
@@ -21,12 +23,14 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['form.component.css'],
   standalone: true,
   imports: [FormsModule, ReactiveFormsModule, MatCheckboxModule, JsonPipe,
-    MatCardModule, MatButtonModule, MatInputModule,
+    MatCardModule, MatButtonModule, MatInputModule, MatDatepickerModule, MatNativeDateModule,
     MatFormFieldModule, MatStepperModule, MatRadioModule, NgFor, NgIf],
 })
 export class FormComponent implements OnInit, OnDestroy{
 
   turista = this._formBuilder.group({
+    ingreso: new FormControl(<Date | null>(null), Validators.required), // SPRINT 3
+    salida: new FormControl(<Date | null>(null), Validators.required), // SPRINT 3
     edad: ['', Validators.required],
     sexo: ['', Validators.required],
     procedencia: ['', Validators.required],

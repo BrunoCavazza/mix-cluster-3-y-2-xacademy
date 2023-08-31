@@ -11,6 +11,18 @@
                             lugar para sus vacaciones. Los datos son confidenciales y anónimos.
                         </p>
                         <br>
+                         <!--CAMBIOS SPRINT 3-->
+                         <label>¿En que fechas visitó Mina Clavero?</label>
+                         <mat-date-range-input [formGroup]="turista" [rangePicker]="picker">
+                           <input matStartDate formControlName="ingreso" placeholder="Ingreso - ">
+                           <input matEndDate formControlName="salida" placeholder="Salida">
+                         </mat-date-range-input>
+                         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                         <mat-date-range-picker #picker></mat-date-range-picker>
+                       
+                         <mat-error *ngIf="turista.controls.ingreso.hasError('matStartDateInvalid')">Fecha de ingreso inválida</mat-error>
+                         <mat-error *ngIf="turista.controls.salida.hasError('matEndDateInvalid')">Fecha de salida inválida</mat-error>
+                     <!-- FIN CAMBIOS SPRINT 3-->
                         <label>Edad* : </label>
                         <input class="inputEdad" type="number" formControlName="edad">
                         <br><br>

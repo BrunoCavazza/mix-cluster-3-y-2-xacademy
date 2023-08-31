@@ -23,5 +23,8 @@ export class getService {
       return this.http.get<Survey[]>(`${this.myAppUrl}${this.myApiUrl}`, { headers: headers } ) 
     }
       
-  
+    export()  {
+    
+      return this.http.get(`${this.myAppUrl}export`, {responseType: "text"});
+    }
 }

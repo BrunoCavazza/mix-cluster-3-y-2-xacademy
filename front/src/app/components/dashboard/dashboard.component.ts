@@ -5,10 +5,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {NgFor, NgIf} from '@angular/common';
-import { DatePipe } from '@angular/common';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {MatDividerModule} from '@angular/material/divider';
 import { CommonModule } from '@angular/common';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-dashboard',
@@ -42,8 +42,16 @@ export class DashboardComponent implements OnInit {
       this.surveys = token;
     })
   }
-  getFormattedDate(date) {
-    return date.toISOString().substring(0, date.toISOString());
- }
+  export(){
+    this.getService.export().subscribe((buffer:any) => {
+      const data: Blob = new Blob([buffer], {
+        type: "json/csv;charset=utf-8"
+      });
+      // you may improve this code to customize the name 
+      // of the export based on date or some other factors
+      saveAs(data, "data_surveyMC.csv");
+    })
+  }
+
 
 }
