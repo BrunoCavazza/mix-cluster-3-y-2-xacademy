@@ -10,7 +10,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddTokenInterceptor } from './utils/add-token.interceptor';
-
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +19,7 @@ import { AddTokenInterceptor } from './utils/add-token.interceptor';
     FooterComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

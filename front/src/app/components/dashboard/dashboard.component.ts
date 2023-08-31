@@ -5,8 +5,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {NgFor, NgIf} from '@angular/common';
+import { DatePipe } from '@angular/common';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {MatDividerModule} from '@angular/material/divider';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,12 +22,12 @@ import {MatDividerModule} from '@angular/material/divider';
     ]),
   ],
   standalone: true,
-  imports: [MatTableModule, MatButtonModule, NgFor, NgIf,MatIconModule, MatDividerModule]
+  imports: [CommonModule, MatTableModule, MatButtonModule, NgFor, NgIf,MatIconModule, MatDividerModule]
 })
 export class DashboardComponent implements OnInit {
   surveys: Survey[] = []
   dataSource = this.surveys;
-  columnsToDisplay = ['id', 'procedencia', 'createdAt'];
+  columnsToDisplay = ['id', 'procedencia', 'Fecha'];
   columnsToDisplayWithExpand = [...this.surveys, 'expand'];
   expandedElement: Survey | null;
   
@@ -40,5 +42,8 @@ export class DashboardComponent implements OnInit {
       this.surveys = token;
     })
   }
+  getFormattedDate(date) {
+    return date.toISOString().substring(0, date.toISOString());
+ }
 
 }
