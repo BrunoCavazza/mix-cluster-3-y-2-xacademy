@@ -4,6 +4,8 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    position: relative;
+    padding-bottom: 3.5em;
 }
 
 app-root {
@@ -36,3 +38,9 @@ app-root {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.app-footer{
+    position: sticky;
+    padding: 1em 0;
+    bottom: 0;
+}
