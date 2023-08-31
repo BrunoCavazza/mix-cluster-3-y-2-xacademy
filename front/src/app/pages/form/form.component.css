@@ -1,5 +1,17 @@
-h1 {
+h1{
     text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+p{
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    margin-bottom: 20px
 }
 
 .preguntas {
@@ -15,7 +27,7 @@ h1 {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    background-color: rgb(51, 101, 194);
+    background-color: #198fbf;
     opacity: 0.95;
     padding-bottom: 20px;
     margin-top: 50px;
@@ -23,15 +35,14 @@ h1 {
     position: relative;
 }
 
-.form-content {
-    background-color: rgb(51, 101, 194, 50);
+
+.form-content{
+    background-color: #198fbf;
     color: white;
     border-radius: 10px;
     padding-bottom: 10px;
 }
 
-
-/* Radios */
 
 .radio-group {
     display: flex;
@@ -44,75 +55,84 @@ h1 {
     margin: 2px;
 }
 
-.text-radio {
+.text-radio{
     font-size: 17px;
 }
 
 
-/* INPUTS */
 
-input {
+input{
     border-radius: 10px;
     border-color: white;
     border-top: white;
     border-left: white;
     height: 25px;
     margin-left: 10px;
+    text-align: center;
 }
 
-.inputEdad {
-    width: 60px;
+.inputEdad{
+    width: 60px;   
 }
 
-.inputText {
+.inputText{
     width: 250px;
 }
 
 
-/* Labels */
-
-label {
+label{
     font-size: 17px;
     padding-bottom: 10px;
 }
 
 
-/* Botones */
+.buttonNext{
+    background-color: rgb(255, 255, 255);
+    color: rgb(51, 101, 194);
+    padding: 5px 20px;
+    font-size: 18px;
+    transition: transform 0.3s ease-in-out;
+}
 
-.buttonNext {
+.buttonNext:hover{
+    background-color: rgb(4, 20, 51);
+    color: white;
+    transform: scale(1.1);
+}
+
+.buttonBack{
     background-color: white;
     color: rgb(51, 101, 194);
     padding: 5px 20px;
     font-size: 18px;
 }
 
-.buttonNext:hover {
-    background-color: rgb(12, 46, 110);
+.buttonBack:hover{
+    background-color: rgb(4, 20, 51);
     color: white;
 }
 
-.buttonBack {
-    background-color: white;
-    color: rgb(51, 101, 194);
-    padding: 5px 20px;
-    font-size: 18px;
-}
-
-.buttonBack:hover {
-    background-color: #0c2e6e;
-    color: white;
-}
-
-.button-Next-Content {
+.button-Next-Content{
     display: flex;
     justify-content: end;
 }
 
-.botonera {
+.botonera{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between;   
 }
+
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+    opacity: 0 !important; /*click effect color change*/
+    background-color: #000000 !important;  }
+    
+    .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: #000000 !important; /*inner circle color change*/  }
+    
+    .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #000000 !important; /*outer ring color change*/  }
+
 
 .requerido {
     color: #51ff00;
