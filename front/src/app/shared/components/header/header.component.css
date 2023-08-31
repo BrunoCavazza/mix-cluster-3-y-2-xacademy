@@ -1,5 +1,5 @@
 .jumbotrol{
-  background-color: #198fbf;
+  background: #198FBF;
   margin: 0 auto;
 }
 .container {
@@ -18,6 +18,23 @@
 .word-container {
   display: flex;
   justify-content: space-around;
+}
+
+.word-container a{
+  cursor: pointer;
+  text-decoration: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px; 
+}
+
+.word-container a:hover{
+  transform: translatey(-5px);
+
+}
+
+
+.word-container img{
+  cursor: pointer;
 }
 
 .display-8 {

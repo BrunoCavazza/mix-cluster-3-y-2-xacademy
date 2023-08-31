@@ -40,7 +40,7 @@ export class FormComponent implements OnInit, OnDestroy{
     graficos: false,
     facebook: false,
     recomendacion: false,
-    otros: "",
+    otros: '',
   });
 
   motivo = this._formBuilder.group({
@@ -226,17 +226,17 @@ export class FormComponent implements OnInit, OnDestroy{
   submitForm(data1:Object, data2:Object, data3:Object, data4:Object, data5:Object, data6:Object, data7:Object, data8:Object, data9:Object, data10:Object, data11:Object, data12:Object, data13:Object, data14:Object, data15:Object, data16:Object){
     
     const opData2 = Object.keys(this.difusion.controls).filter(opcion => this.difusion.get(opcion)?.value);
-    const filter2: { [key: string]: boolean } = {}; // Agregamos el tipo explícito
+    const filter2: { [key: string]: boolean } = {};
 
     opData2.forEach(opcion => {
-      filter2[opcion] = true;
+      filter2[opcion] === true ;
     });
 
     const opData3 = Object.keys(this.motivo.controls).filter(opcion => this.motivo.get(opcion)?.value);
-    const filter3: { [key: string]: boolean } = {}; // Agregamos el tipo explícito
+    const filter3: { [key: string]: boolean } = {};
 
     opData3.forEach(opcion => {
-      filter3[opcion] = true;
+      filter3[opcion] === true || String;
     });
 
     const opData9 = Object.keys(this.tipo_inform.controls);
@@ -244,7 +244,7 @@ export class FormComponent implements OnInit, OnDestroy{
 
     const filter9: { [key: string]: boolean } = {};
     control9.forEach(controlName => {
-      filter9[controlName] = true;
+      filter9[controlName] === true || String;
     });
 
     const opData10 = Object.keys(this.medio_informacion.controls);
@@ -252,7 +252,7 @@ export class FormComponent implements OnInit, OnDestroy{
 
     const filter10: { [key: string]: boolean } = {};
     control10.forEach(controlName => {
-      filter10[controlName] = true;
+      filter10[controlName] === true || String;
     });
 
 
@@ -261,7 +261,7 @@ export class FormComponent implements OnInit, OnDestroy{
 
     const filter11: { [key: string]: boolean } = {};
     control11.forEach(controlName => {
-      filter11[controlName] = true;
+      filter11[controlName] === true || String;
     });
 
     const opData14 = Object.keys(this.que_informacion.controls);
@@ -269,25 +269,25 @@ export class FormComponent implements OnInit, OnDestroy{
 
     const filter14: { [key: string]: boolean } = {};
     control14.forEach(controlName => {
-      filter14[controlName] = true;
+      filter14[controlName] === true || String;
     });
 
 
     const data = {
       turista: data1,
-      difusion: filter2,
-      motivo: filter3,
+      difusion: data2,
+      motivo: data3,
       reserva: data4,
       tipo_hospedaje: data5,
       calificacion_hospedaje: data6,
       material_informativo: data7,
       oficina: data8,
-      tipo_informacion: filter9,
-      medio_informacion: filter10,
-      tipo_material: filter11,
+      tipo_informacion: data9,
+      medio_informacion: data10,
+      tipo_material: data11,
       calificacion_informacion: data12, 
       otra_informacion: data13, 
-      que_informacion: filter14, 
+      que_informacion: data14, 
       calificacion_MC: data15, 
       recomendaria: data16}
 

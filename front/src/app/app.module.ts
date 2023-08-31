@@ -9,8 +9,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddTokenInterceptor } from './utils/add-token.interceptor';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { AddTokenInterceptor } from './utils/add-token.interceptor';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    DashboardComponent,
+
   ],
   imports: [
     BrowserModule,

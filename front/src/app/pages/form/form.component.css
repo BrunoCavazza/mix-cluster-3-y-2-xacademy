@@ -1,4 +1,3 @@
-
 h1{
     text-align: center;
     font-family: 'Arial', sans-serif;
@@ -133,3 +132,9 @@ label{
     
     .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
     border-color: #000000 !important; /*outer ring color change*/  }
+
+
+.requerido {
+    color: #51ff00;
+    font-size: 18px;
+}

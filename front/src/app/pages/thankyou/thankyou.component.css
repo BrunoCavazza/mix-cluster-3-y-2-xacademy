@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    background-color: rgb(51, 101, 194);
+    background-color: #198FBF;
     opacity: 0.95;
     padding-bottom: 20px;
     margin-top: 50px;
@@ -28,12 +28,13 @@ p{
 
 .button-home{
     background-color: white;
-    color: rgb(51, 101, 194);
+    color: #198FBF;
     padding: 5px 20px;
     font-size: 18px;
+    margin-top: 30px;
 }
 
 .button-home:hover{
-    background-color: rgb(12, 46, 110);
+    background-color:#0f749c;
     color: white;
 }
