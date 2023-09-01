@@ -6,7 +6,7 @@
   }
   
   .body {
-   background: rgba(45, 181, 196, 0.5);
+   background: rgba(7, 134, 202, 0.5);
     padding: 50px;
     border-radius: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
@@ -32,7 +32,7 @@
   }
 
   .btn-primary {
-    background-color: rgba(11, 96, 105, 0.5);
+    background-color: rgba(10, 68, 174, 0.5);
     color: white;
     border: none;
     border-radius: 4px;
