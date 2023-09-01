@@ -44,3 +44,14 @@
     flex-direction: column;
   }
   
+  a{
+    margin-left: 15px;
+  }
+  
+
+  .footer-column{
+    margin-top: 25px;
+  }
+  .h3{
+    font-size: 40px;
+  }
