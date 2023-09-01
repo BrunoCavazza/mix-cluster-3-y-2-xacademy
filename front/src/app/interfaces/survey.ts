@@ -84,6 +84,6 @@ export interface Survey {
         recomendaria: string,
         porque: string
     },
-    createdAt: Date
+    createdAt: Date;
 
 }

@@ -11,7 +11,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddTokenInterceptor } from './utils/add-token.interceptor';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -22,6 +22,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

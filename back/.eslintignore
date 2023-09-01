@@ -1,3 +1,6 @@
 migrations
 seeders
 node_modules
+app.js
+routes
+config

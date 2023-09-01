@@ -3,12 +3,16 @@
     <table [dataSource]="this.surveys" mat-table multiTemplateDataRows class="mat-elevation-z8">
       <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
             <th mat-header-cell *matHeaderCellDef> {{column}} </th>
-            <div *ngIf="column === 'procedencia';else other_content ">
+            <div *ngIf="column === 'id'">
+              <td #other_content mat-cell *matCellDef="let element"> {{element[column]}} </td>
+            </div>
+            <div *ngIf="column === 'procedencia'">
               <td #other_content mat-cell *matCellDef="let element"> {{element.Turista[column]}} </td>
             </div>
-            <ng-template #other_content>
-              <td #other_content mat-cell *matCellDef="let element"> {{element[column]}} </td>
-            </ng-template>
+            <div *ngIf="column === 'Fecha'">
+              <td #other_content mat-cell *matCellDef="let element"> {{ element.createdAt | date: 'short'}} </td>
+            </div>
+            
       </ng-container>
       <ng-container matColumnDef="expandedDetail">
         <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
@@ -255,4 +259,5 @@
         </tr>
         <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
       </table>
+      <button (click)="export()">Export</button>
 </div>

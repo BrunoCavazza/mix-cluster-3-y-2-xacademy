@@ -8,6 +8,8 @@ const Express = require('express');
 const { DataTypes } = require('sequelize');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
+const mysql = require("mysql2");
+const data_export = require('json2csv').Parser;
 
 // Middlewares:
 const rootPath = require('../middleware/root_path.middleware');
@@ -22,6 +24,15 @@ const validateToken = require('./validate-token');
 const app = Express();
 
 // Rutas
+
+// conexion para el csv
+
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "root",
+  database: "prueba",
+});
 
 // use=
 app.get('/getall', validateToken, async (req, res) => {
@@ -57,6 +68,22 @@ app.get('/dashboard', passport.authenticate('jwt', { session: false }), (req, re
 });
 
 app.post('/send', surveyController.createSurvey);
+
+app.get("/export", (req, res, next) => {
+  connection.query("SELECT * FROM surveys", function (err, data) {
+    const mysql_data = JSON.parse(JSON.stringify(data));
+
+    const file_header = ['Turista', 'Difusion', 'Motivo', 'Reserva', 'Tipo Hospedaje', 'Calificacion Hospedaje', 'Material Informativo', 'Oficina', 'Tipo Informacion', 'Medio Informacion', 'Tipo Material', 'Calificacion Informacion', 'Otra Informacion', 'Que Informacion', 'Calificacion MC', 'Recomendaria']
+
+    const json_data = new data_export({file_header})
+
+    const csv_data = json_data.parse(mysql_data);
+
+    res.setHeader("Content-Type", "text/csv");
+    res.setHeader("Content-Disposition", "attachment; filename=data_surveyMC.csv");
+    res.status(200).end(csv_data)
+  });
+});
 
 app.use('/ping', (req, res) => {
   res.json({

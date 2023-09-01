@@ -7,6 +7,8 @@ import {MatTableModule} from '@angular/material/table';
 import {NgFor, NgIf} from '@angular/common';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {MatDividerModule} from '@angular/material/divider';
+import { CommonModule } from '@angular/common';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,12 +22,12 @@ import {MatDividerModule} from '@angular/material/divider';
     ]),
   ],
   standalone: true,
-  imports: [MatTableModule, MatButtonModule, NgFor, NgIf,MatIconModule, MatDividerModule]
+  imports: [CommonModule, MatTableModule, MatButtonModule, NgFor, NgIf,MatIconModule, MatDividerModule]
 })
 export class DashboardComponent implements OnInit {
   surveys: Survey[] = []
   dataSource = this.surveys;
-  columnsToDisplay = ['id', 'procedencia', 'createdAt'];
+  columnsToDisplay = ['id', 'procedencia', 'Fecha'];
   columnsToDisplayWithExpand = [...this.surveys, 'expand'];
   expandedElement: Survey | null;
   
@@ -40,5 +42,16 @@ export class DashboardComponent implements OnInit {
       this.surveys = token;
     })
   }
+  export(){
+    this.getService.export().subscribe((buffer:any) => {
+      const data: Blob = new Blob([buffer], {
+        type: "json/csv;charset=utf-8"
+      });
+      // you may improve this code to customize the name 
+      // of the export based on date or some other factors
+      saveAs(data, "data_surveyMC.csv");
+    })
+  }
+
 
 }
