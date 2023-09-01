@@ -123,14 +123,14 @@ label{
 }
 
 .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
-    opacity: 0 !important; /*click effect color change*/
+    opacity: 0 !important; 
     background-color: #000000 !important;  }
     
     .mat-radio-button.mat-accent .mat-radio-inner-circle {
-    background-color: #000000 !important; /*inner circle color change*/  }
+    background-color: #000000 !important; }
     
     .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-    border-color: #000000 !important; /*outer ring color change*/  }
+    border-color: #000000 !important;  }
 
 
 .requerido {

@@ -119,6 +119,7 @@
               </div>
               <mat-divider></mat-divider>
             </div>
+            <div *ngIf="element.Oficina.oficinaOption !== 'No'">
             <div class="example-element-description">
               <p class="pregunta">¿Qué tipo de información solicitó en las oficinas de Turismo de Mina Clavero?</p>
               <div *ngIf="element.Tipo_Informacion.hospedaje === true">
@@ -224,6 +225,7 @@
               </div>
               <mat-divider></mat-divider>
             </div>
+          </div>
             <div class="example-element-description">
               <p class="pregunta">¿Considera a Mina Clavero como un destino completo en cuanto a su oferta y servicios?</p>
               <div >

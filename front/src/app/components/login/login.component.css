@@ -6,14 +6,14 @@
   }
   
   .body {
-   background: rgba(7, 134, 202, 0.5);
+   background: rgba(7, 134, 202);
     padding: 50px;
     border-radius: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
     animation: fade-in 0.5s ease-in-out; 
     width: 150%;
     max-width: 400px;
-    height: 130%;
+    height: 75%;
     margin-top: 180px;
   }
 
@@ -24,6 +24,12 @@
     gap: 30px; 
   }
   
+  h3{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    text-align: center;
+    color:white
+  }
 
   .form-floating input,
   .form-floating label {
