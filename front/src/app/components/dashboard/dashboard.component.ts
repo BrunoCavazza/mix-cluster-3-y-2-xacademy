@@ -9,6 +9,8 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import {MatDividerModule} from '@angular/material/divider';
 import { CommonModule } from '@angular/common';
 import { saveAs } from 'file-saver';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,7 +24,7 @@ import { saveAs } from 'file-saver';
     ]),
   ],
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatButtonModule, NgFor, NgIf,MatIconModule, MatDividerModule]
+  imports: [CommonModule, MatTableModule, MatButtonModule, NgFor, NgIf,MatIconModule, MatDividerModule, MatTabsModule, MatCardModule]
 })
 export class DashboardComponent implements OnInit {
   surveys: Survey[] = []
@@ -49,7 +51,7 @@ export class DashboardComponent implements OnInit {
       });
       // you may improve this code to customize the name 
       // of the export based on date or some other factors
-      saveAs(data, "data_surveyMC.csv");
+      saveAs(data, "Hoja_de_datos_Mina_Clavero.csv");
     })
   }
 

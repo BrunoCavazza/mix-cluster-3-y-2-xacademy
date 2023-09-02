@@ -9,7 +9,31 @@ table {
   tr.example-detail-row {
     height: 0;
   }
+  .Navegacion{
+    background: whitesmoke;
+  }
+  .Espacio_blanco{
+    background: whitesmoke;
+    min-height: 300px;
+  }
+  .Dashboard_encuesta{
+    margin-bottom: 20px;
+    background: whitesmoke; 
+  }
+  .contenedor{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+ 
+  }
+  .titulo{
+  margin-left: 15%;
+  margin-top: 10px;
+  }
   
+  .id{
+    min-width:  400px;
+  }
   tr.example-element-row:not(.example-expanded-row):hover {
     background: whitesmoke;
   }
