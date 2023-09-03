@@ -1,8 +1,33 @@
 <div class="container mt-2 text-center">
-    <h2>DASHBOARD ENCUESTA</h2>
+   
+    <mat-card  class="Dashboard_encuesta" >
+      <mat-card-content>
+
+        <div class="contenedor">
+          <div>
+           
+          </div>
+          <div class="titulo">
+            <h2>DASHBOARD ENCUESTA</h2>
+          </div>
+
+          <div class="boton_exportar">
+            <button mat-button color="primary" >Exportar a hoja de datos</button>
+          </div>
+       
+      </div>
+
+      </mat-card-content>
+    </mat-card>
+
+    <mat-tab-group class="Navegacion">
+      <mat-tab label="Tablas" >
+
+
     <table [dataSource]="this.surveys" mat-table multiTemplateDataRows class="mat-elevation-z8">
       <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
             <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+            <div class="id"></div>
             <div *ngIf="column === 'id'">
               <td #other_content mat-cell *matCellDef="let element"> {{element[column]}} </td>
             </div>
@@ -261,5 +286,15 @@
         </tr>
         <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
       </table>
-      <button (click)="export()">Export</button>
+
+     
+    </mat-tab>
+
+    <mat-tab label="Graficos"> 
+      <div class="Espacio_blanco">
+
+      </div>
+    </mat-tab>
+    
+  </mat-tab-group>
 </div>
