@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {  Component, OnDestroy, OnInit } from '@angular/core';
 import {FormBuilder, Validators, FormsModule, ReactiveFormsModule, FormGroup, FormControl} from '@angular/forms';
 import {CommonModule ,JsonPipe, NgFor, NgIf} from '@angular/common';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -29,12 +29,12 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class FormComponent implements OnInit, OnDestroy{
 
   turista = this._formBuilder.group({
-    ingreso: new FormControl(<Date | null>(null), Validators.required), // SPRINT 3
-    salida: new FormControl(<Date | null>(null), Validators.required), // SPRINT 3
     edad: ['', Validators.required],
     sexo: ['', Validators.required],
     procedencia: ['', Validators.required],
     acompaniantes: ['', Validators.required],
+    ingreso: new FormControl(<Date | null>(null), Validators.required), // SPRINT 3
+    salida: new FormControl(<Date | null>(null), Validators.required) // SPRINT 3
   });
 
   difusion = this._formBuilder.group({

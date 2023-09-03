@@ -12,7 +12,7 @@
           </div>
 
           <div class="boton_exportar">
-            <button mat-button color="primary" >Exportar a hoja de datos</button>
+            <button mat-button color="primary" (click)="export()" >Exportar a hoja de datos</button>
           </div>
        
       </div>
@@ -35,7 +35,7 @@
               <td #other_content mat-cell *matCellDef="let element"> {{element.Turista[column]}} </td>
             </div>
             <div *ngIf="column === 'Fecha'">
-              <td #other_content mat-cell *matCellDef="let element"> {{ element.createdAt | date: 'short'}} </td>
+              <td #other_content mat-cell *matCellDef="let element"> {{ element.createdAt | date: 'dd/MM/yyyy'}} </td>
             </div>
             
       </ng-container>
@@ -56,6 +56,12 @@
             </div>
             <div class="example-element-description">
               <p class="pregunta">Acompañante</p>{{element.Turista.acompaniantes}}<mat-divider></mat-divider>
+            </div>
+            <div class="example-element-description">
+              <p class="pregunta">Fecha de ingreso</p>{{element.Turista.ingreso  | date: 'EEEE, d MMMM, y'}}<mat-divider></mat-divider>
+            </div>
+            <div class="example-element-description">
+              <p class="pregunta">Fecha de salida</p>{{element.Turista.salida  | date: 'EEEE, d MMMM, y'}}<mat-divider></mat-divider>
             </div>
             <div class="example-element-description">
               <p class="pregunta">¿A través de qué medio conoció el destino Mina Clavero?</p>

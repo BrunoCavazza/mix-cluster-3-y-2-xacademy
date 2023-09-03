@@ -4,7 +4,7 @@ import { getService } from 'src/app/services/survey.service';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
-import {NgFor, NgIf} from '@angular/common';
+import {NgFor, NgIf, registerLocaleData} from '@angular/common';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {MatDividerModule} from '@angular/material/divider';
 import { CommonModule } from '@angular/common';

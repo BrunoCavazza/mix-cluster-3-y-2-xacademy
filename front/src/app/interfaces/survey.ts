@@ -2,7 +2,7 @@ export interface Survey {
     id: Number,
     
     Turista: {
-        edad: string, sexo: string, procedencia: string, acompaniantes: string
+        edad: string, sexo: string, procedencia: string, acompaniantes: string, ingreso: Date, salida: Date
     },
     Difusion: {
         television: boolean, 
