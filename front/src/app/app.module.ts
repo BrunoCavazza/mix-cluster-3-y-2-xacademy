@@ -23,6 +23,7 @@ registerLocaleData(localeEs, 'es');
     HeaderComponent,
     FooterComponent,
 
+
   ],
   imports: [
     CommonModule,

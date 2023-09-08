@@ -14,7 +14,7 @@ table {
   }
   .Espacio_blanco{
     background: whitesmoke;
-    min-height: 300px;
+    margin-bottom: 75px;
   }
   .Dashboard_encuesta{
     margin-bottom: 20px;

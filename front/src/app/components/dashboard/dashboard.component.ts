@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { saveAs } from 'file-saver';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
+import { ChartComponent } from '../chart/chart.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,7 +25,7 @@ import {MatCardModule} from '@angular/material/card';
     ]),
   ],
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatButtonModule, NgFor, NgIf,MatIconModule, MatDividerModule, MatTabsModule, MatCardModule]
+  imports: [CommonModule, MatTableModule, MatButtonModule, NgFor, NgIf,MatIconModule, MatDividerModule, MatTabsModule, MatCardModule, ChartComponent]
 })
 export class DashboardComponent implements OnInit {
   surveys: Survey[] = []
