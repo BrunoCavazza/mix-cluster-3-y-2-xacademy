@@ -26,6 +26,23 @@ p{
     font-size: 20px;
 }
 
+mat-label {
+    color: white;
+    margin-top: 15px;
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+input {
+    border-radius: 10px;
+    border-color: white;
+    border-top: white;
+    border-left: white;
+    height: 25px;
+    margin-left: 10px;
+    width: 250px;
+}
+
 .button-home{
     background-color: white;
     color: #198FBF;
@@ -37,4 +54,54 @@ p{
 .button-home:hover{
     background-color:#0f749c;
     color: white;
+}
+
+.ng-valid:not(form).ng-touched {
+    border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form).ng-touched {
+    border-left: 5px solid #A94442;
+}
+
+.texto-advertencia {
+    font-style: italic;
+    font-size:15px;
+    color: white;
+}
+
+.boton-enviar-mail {background-color: white;
+    color: #198FBF;
+    padding: 5px 20px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.boton-enviar-mail:hover {
+    background-color: #0f749c;
+    color: white;
+}
+
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0f749c;
+    border-radius: 15px;    
+}
+
+::ng-deep .mat-progress-spinner circle{
+    
+    margin-bottom: 10px;
+    stroke: white;
+}
+
+.loading-spinner p {
+    font-size: 18px;
 }
