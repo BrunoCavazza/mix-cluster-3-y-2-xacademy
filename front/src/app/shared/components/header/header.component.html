@@ -5,7 +5,7 @@
       <a href="http://www.minaclavero.gov.ar/vecinos.php" class="display-8 font-weight-bold" target="_blank">Municipalidad</a>
       <img src="../../../../assets/logominaclaver.png" alt="Logo" class="logo" routerLink="/home">
       <a class="display-8 font-weight-bold" routerLink="/form">Encuesta</a>
-      <a href="http://www.minaclavero.gov.ar/novedades.php" class="display-8 font-weight-bold" target="_blank">Novedades</a>
+      <a class="display-8 font-weight-bold" routerLink="/contact" target="_blank">Contacto</a>
       <a class="display-8 font-weight-bold" target="_blank" *ngIf="_userService.loggedIn()" (click)="_userService.logOut()" >Logout</a>
     </div>
   </div>

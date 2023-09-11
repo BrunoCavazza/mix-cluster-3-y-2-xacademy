@@ -6,6 +6,7 @@ import { AuthGuard } from './utils/auth.guard';
 import { FormComponent } from './pages/form/form.component';
 import { ThankyouComponent } from './pages/thankyou/thankyou.component';
 import { HomeComponent } from './pages/home/home.component'; 
+import { ContactComponent } from './pages/contact/contact.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,7 +15,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'form', component: FormComponent },
   { path: 'thankyou', component: ThankyouComponent },
+  { path: 'contact', component: ContactComponent },
   { path: '**', redirectTo: 'home' }
+
 ];
 
 @NgModule({

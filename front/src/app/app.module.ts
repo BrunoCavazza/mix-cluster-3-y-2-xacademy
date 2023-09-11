@@ -13,6 +13,7 @@ import { AddTokenInterceptor } from './utils/add-token.interceptor';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { registerLocaleData, CommonModule } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
+import { ContactComponent } from './pages/contact/contact.component';
 
 registerLocaleData(localeEs, 'es');
 
@@ -22,7 +23,6 @@ registerLocaleData(localeEs, 'es');
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-
   ],
   imports: [
     CommonModule,
