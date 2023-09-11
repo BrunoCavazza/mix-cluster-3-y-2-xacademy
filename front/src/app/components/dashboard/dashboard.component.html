@@ -4,13 +4,13 @@
       <mat-card-content>
 
         <div class="contenedor">
-          <div>
-           
-          </div>
-          <div class="titulo">
-            <h2>DASHBOARD ENCUESTA</h2>
-          </div>
 
+          <div class="titulo">
+            <h2>RESULTADOS ENCUESTA</h2>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="filterPost" placeholder="Buscar por id o procedencia" [(ngModel)]="filterPost" (input)="applyFilter()">
+          </div>
           <div class="boton_exportar">
             <button mat-button color="primary" (click)="export()" >Exportar a hoja de datos</button>
           </div>
@@ -24,10 +24,9 @@
       <mat-tab label="Tablas" >
 
 
-    <table [dataSource]="this.surveys" mat-table multiTemplateDataRows class="mat-elevation-z8">
+    <table [dataSource]="dataSource" mat-table multiTemplateDataRows class="mat-elevation-z8">
       <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
-            <th mat-header-cell *matHeaderCellDef> {{column}} </th>
-            <div class="id"></div>
+            <th mat-header-cell *matHeaderCellDef> {{column }} </th>
             <div *ngIf="column === 'id'">
               <td #other_content mat-cell *matCellDef="let element"> {{element[column]}} </td>
             </div>
@@ -276,14 +275,6 @@
           </div>
         </td>
       </ng-container>
-        <!-- <tbody>
-          <tr *ngFor="let survey of surveys">
-            <td>{{ survey.id }}</td>
-            <td>{{ survey.Turista.procedencia}} </td>
-            <td>{{ survey.createdAt}} </td>
-          </tr>
-         
-        </tbody> -->
         <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
         <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
             class="example-element-row"
@@ -292,7 +283,7 @@
         </tr>
         <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
       </table>
-
+      <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
      
     </mat-tab>
 
