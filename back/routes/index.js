@@ -19,9 +19,11 @@ const rootPath = require('../middleware/root_path.middleware');
 const errors = require('../middleware/error_handler.middleware');
 const { sequelize } = require('../models');
 const surveyController = require('../controllers/surveyControllers');
+const contactoController = require('../controllers/contactoController')
 
 const Survey = require('../models/survey')(sequelize, DataTypes);
 const User = require('../models/user')(sequelize, DataTypes);
+const Contacto = require('../models/contacto')(sequelize, DataTypes);
 const validateToken = require('./validate-token');
 const htmlContent = fs.readFileSync('./utils/panfleto-mail.html', 'utf-8');
 const app = Express();
@@ -68,6 +70,18 @@ app.post('/login', async (req, res) => {
 
 app.get('/dashboard', passport.authenticate('jwt', { session: false }), (req, res) => {
   res.send('Estas autorizado');
+});
+
+app.post('/contacto', contactoController.createContacto);
+
+app.get('/getContacts', validateToken, async (req, res) => {
+  try {
+    const contacto = await Contacto.findAll();
+
+    res.json(contacto);
+  } catch (err) {
+    res.json('no funciona de nuevo');
+  }
 });
 
 app.post('/send', surveyController.createSurvey);
