@@ -16,6 +16,8 @@ import {MatCardModule} from '@angular/material/card';
 import { ChartComponent } from '../chart/chart.component';
 import {MatInputModule} from '@angular/material/input';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { ContactService } from 'src/app/services/contact.service';
+import { Contact } from 'src/app/interfaces/contact';
 
 @Component({
   selector: 'app-dashboard',
@@ -34,15 +36,20 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 export class DashboardComponent implements OnInit {
   surveys: Survey[] = []
-  dataSource = new MatTableDataSource(this.surveys)
+  contact: Contact[] = []
+  dataSource = new MatTableDataSource(this.surveys);
+  contactSource = new MatTableDataSource(this.contact);
   columnsToDisplay = ['id', 'procedencia', 'Fecha'];
+  contactsToDisplay = ['id', 'Nombre', 'Fecha'];
   columnsToDisplayWithExpand = [...this.surveys, 'expand'];
+  contactsToDisplayWithExpand = [...this.contact, 'expand']
   expandedElement: Survey | null;
+  expandedContact: Contact | null;
   filterPost = "";
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   
-  constructor(private getService: getService) { }
+  constructor(private getService: getService, private _getContacts: ContactService) { }
 
 
   applyFilter() {
@@ -67,6 +74,7 @@ export class DashboardComponent implements OnInit {
   }
   ngOnInit(): void {
     this.get();
+    this.getContacts();
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -76,6 +84,12 @@ export class DashboardComponent implements OnInit {
       this.dataSource.data = token;
     })
   }
+  getContacts(){
+    this._getContacts.get().subscribe(token =>{
+      this.contactSource.data = token
+    })
+  }
+
   export(){
     this.getService.export().subscribe((buffer:any) => {
       const data: Blob = new Blob([buffer], {

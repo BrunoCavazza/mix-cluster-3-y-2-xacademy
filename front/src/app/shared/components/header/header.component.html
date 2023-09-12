@@ -21,11 +21,11 @@
         <a class="display-8 font-weight-bold" routerLink="/form">Encuesta</a>
       </li>
       <li class="nav-item">
-        <a href="http://www.minaclavero.gov.ar/novedades.php" class="display-8 font-weight-bold" target="_blank">Novedades</a>
+        <a routerLink="/contacto" class="display-8 font-weight-bold">Contacto</a>
       </li>
       <li class="nav-item last-child">
         <div class="d-lg-none">
-          <a class="display-8 font-weight-bold" (click)="_userService.logOut()" routerLink="/home">Cerrar Sesión</a>
+          <a class="display-8 font-weight-bold"  *ngIf="_userService.loggedIn()" (click)="_userService.logOut()" routerLink="/home">Cerrar Sesión</a>
         </div>
         <a class="display-8 font-weight-bold logOut" target="_blank" *ngIf="_userService.loggedIn()" (click)="_userService.logOut()">
           <i class="fas fa-sign-out-alt fa-lg"></i>
