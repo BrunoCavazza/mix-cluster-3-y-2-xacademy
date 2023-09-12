@@ -25,7 +25,7 @@
       </li>
       <li class="nav-item last-child">
         <div class="d-lg-none">
-          <a class="display-8 font-weight-bold" routerLink="/home">Cerrar Sesión</a>
+          <a class="display-8 font-weight-bold" (click)="_userService.logOut()" routerLink="/home">Cerrar Sesión</a>
         </div>
         <a class="display-8 font-weight-bold logOut" target="_blank" *ngIf="_userService.loggedIn()" (click)="_userService.logOut()">
           <i class="fas fa-sign-out-alt fa-lg"></i>
