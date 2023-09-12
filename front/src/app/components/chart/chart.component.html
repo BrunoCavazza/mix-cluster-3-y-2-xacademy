@@ -6,11 +6,12 @@
   </select>
 </mat-form-field>
 
+
 <div class="contenedor">
 <div *ngIf="selectedChartName === 'Turista'" class="turista">
     
     <div style="justify-content: center;">
-      <h2>GRÁFICO DE GENEROS</h2>
+      <h2>GRÁFICA DE GENEROS</h2>
     <canvas baseChart
       [type]="'pie'"
       [datasets]="pieChartDatasets"
@@ -25,7 +26,7 @@
 <div *ngIf="selectedChartName === 'Turista'" class="turista" >
     
     <div style="justify-content: center;">
-      <h2>GRÁFICO DE EDAD</h2>
+      <h2>GRÁFICA DE EDAD</h2>
     <canvas baseChart
       [type]="'pie'"
       [datasets]="pieChartDatasetsEdad"
@@ -40,7 +41,7 @@
   <div *ngIf="selectedChartName === 'Turista'" class="turista" >
    
     <div style="justify-content: center;">
-      <h2>GRÁFICO DE PROCEDENCIA</h2>
+      <h2>GRÁFICA DE PROCEDENCIA</h2>
     <canvas baseChart
       [type]="'bar'"
       [data]="barChartData"

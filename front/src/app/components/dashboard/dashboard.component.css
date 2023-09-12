@@ -34,6 +34,7 @@ table {
   margin-top: 10px;
   }
   
+
   .id{
     min-width:  400px;
   }
@@ -85,3 +86,52 @@ table {
     font-weight: 100;
   }
   
+  /* Media Queries */
+@media (max-width: 992px) {
+  h2{
+    font-size: 15px;
+  }
+
+  .titulo{
+    margin-left: 10px;
+    
+    }
+
+
+  .contenedor{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin: 10px;
+  }
+ 
+}
+
+@media (max-width: 768px) {
+  h2{
+    font-size: 13px;
+  }
+
+  .titulo{
+    margin-left: 5px;
+    
+    }
+
+
+  .contenedor{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-right: 20px;
+  }
+
+  .boton_exportar{
+    font-size: 13px;
+  }
+
+}
+
+@media (max-width: 576px) {
+
+ 
+}
