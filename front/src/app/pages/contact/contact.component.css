@@ -1,0 +1,46 @@
+.hero-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin-top: 15px;
+    font-size: 34px;
+    margin-left: 550px;
+}
+
+.label {
+    font-weight: bold;
+    text-align: center;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+.input,
+.textarea {
+    width: 72%;
+    border-radius: 10px;
+}
+
+.custom-width {
+    width: 42%;
+    border-radius: 7px;
+}
+
+.button {
+    display: block;
+    margin: 50 auto;
+    max-width: 200px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}

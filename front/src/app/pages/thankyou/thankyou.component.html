@@ -3,10 +3,10 @@
     <p>Tus respuestas nos ayudan a mejorar</p>
     <button mat-button color="primary" class="button-home" (click)="button()">Volver al inicio</button>
 </div>
-<div class="contenedor" @enterState>
+<div class="contenedor contenedorDos" @enterState>
     <div *ngIf="!isSubscribed" class="text-center">
-        <h1 class="text-center">¿Quieres más información? ¡Te contactamos!</h1>
-        <form [formGroup]="emailForm" (submit)="newsletter()">
+        <h2 class="text-center">¿Quieres más información? ¡Te contactamos!</h2>
+        <form [formGroup]="emailForm" (submit)="newsletter()" class="formNl">
             <div>
                 <mat-label>Correo Electrónico: </mat-label>
                 <input matInput type="email" id="email" name="email" formControlName="email" required />

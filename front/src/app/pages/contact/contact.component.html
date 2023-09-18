@@ -1,0 +1,33 @@
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">Contactanos!</h1>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container">
+      <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value)">
+        <div class="field">
+          <label class="label">Nombre</label>
+          <input formControlName="Name" type="text" value="Name" name="nombre" class="input custom-width" placeholder="Nombre">
+        </div>
+        <div class="field">
+          <label class="label">Email</label>
+          <input formControlName="email" type="text" value="email" name="email" class="input custom-width">
+        </div>
+        <div class="field">
+          <label class="label">Mensaje</label>
+          <textarea formControlName="message" name="mensaje" value="message" class="textarea" rows="4"></textarea>
+        </div>
+        <div class="button-container">
+        <button type="submit" class="btn btn-primary btn-lg">
+          Enviar!
+        </button>
+      </div>
+  
+      </form>
+  
+    </div>
+  </section>

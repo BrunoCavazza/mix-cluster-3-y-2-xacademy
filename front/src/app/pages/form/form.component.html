@@ -306,13 +306,15 @@
                             <mat-checkbox class="text-radio" color="primary" formControlName="paseos">Paseos</mat-checkbox>
                         </p>
                         <p class="text-radio">Otros: <input class="inputText" type="text" formControlName="otros"></p>
-                        <span class="requerido" *ngIf="oficina.invalid">* Complete los campos requeridos para continuar.</span>
                     </div>
-                        <br>
-                        <div class="botonera">
-                            <button mat-button matStepperPrevious class="buttonBack">Anterior</button>
-                            <button mat-button matStepperNext class="buttonNext" [disabled]="oficina.invalid">Siguiente</button>
-                        </div><br>
+                    <br>
+                    <span class="requerido" *ngIf="oficinaOption.value !== 'No' && (!tipo_inform.dirty || !medio_informacion.dirty || !tipo_material.dirty || calificacion_informacion.invalid || otra_informacion.invalid || !que_informacion.dirty)">* Complete los campos requeridos para continuar.</span>
+                    <br>
+                    <div class="botonera">
+                        <button mat-button matStepperPrevious class="buttonBack">Anterior</button>
+                        <button mat-button matStepperNext class="buttonNext" [disabled]="oficinaOption.value !== 'No' && (!tipo_inform.dirty || !medio_informacion.dirty || !tipo_material.dirty || calificacion_informacion.invalid || otra_informacion.invalid || !que_informacion.dirty)">Siguiente</button>
+                    </div>
+                    <br>
                     
                     </form>
              

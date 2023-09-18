@@ -3,6 +3,9 @@ table {
     box-sizing: border-box;
   }
 
+  th.mat-header-cell {
+    text-align: center !important;
+  }
   .mat-elevation-z8{
     box-sizing: content-box;
   }
@@ -14,7 +17,7 @@ table {
   }
   .Espacio_blanco{
     background: whitesmoke;
-    min-height: 300px;
+    margin-bottom: 75px;
   }
   .Dashboard_encuesta{
     margin-bottom: 20px;
@@ -31,6 +34,7 @@ table {
   margin-top: 10px;
   }
   
+
   .id{
     min-width:  400px;
   }
@@ -82,3 +86,52 @@ table {
     font-weight: 100;
   }
   
+  /* Media Queries */
+@media (max-width: 992px) {
+  h2{
+    font-size: 15px;
+  }
+
+  .titulo{
+    margin-left: 10px;
+    
+    }
+
+
+  .contenedor{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin: 10px;
+  }
+ 
+}
+
+@media (max-width: 768px) {
+  h2{
+    font-size: 13px;
+  }
+
+  .titulo{
+    margin-left: 5px;
+    
+    }
+
+
+  .contenedor{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-right: 20px;
+  }
+
+  .boton_exportar{
+    font-size: 13px;
+  }
+
+}
+
+@media (max-width: 576px) {
+
+ 
+}
