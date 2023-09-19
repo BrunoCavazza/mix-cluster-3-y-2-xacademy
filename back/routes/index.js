@@ -113,7 +113,7 @@ app.post('/newsletter', async (req, res) => {
         service: 'Gmail',
         auth: {
           type: 'OAuth2',
-          user: 'maxirivadero2000@gmail.com',
+          user: 'minaclaverogob@gmail.com',
           clientId: CLIENT_ID,
           clientSecret: CLIENT_SECRET,
           refreshToken: REFRESH_TOKEN,
@@ -121,7 +121,7 @@ app.post('/newsletter', async (req, res) => {
         },
       });
       const mailOptions = {
-        from: 'maxirivadero2000@gmail.com',
+        from: 'minaclaverogob@gmail.com',
         to: email,
         subject: 'Turismo Mina Clavero',
         html: htmlContent,

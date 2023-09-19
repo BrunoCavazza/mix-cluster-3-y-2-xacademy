@@ -15,61 +15,57 @@
             td {
                 width: 100%;
             }
+            h1 {
+                font-size: 36px;
+                line-height: 48px;
+                padding-left: 30px;
+                padding-right: 30px;
+                text-align: center;
+            }
+            h2 {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+            p {
+                font-size: 16px;
+                line-height: 24px;
+                padding-left: 30px;
+                padding-right: 30px;
+                text-align: center;
+            }
             .body-gmail {
                 margin: 0 auto;
                 padding: 0;
                 max-width: 640px;
-                /*
-                background-image: url(https://uploads-ssl.webflow.com/650088f083e7fc5892fdea9e/65008925c9bdf8dbc4d08755_portada-home.jpg);
-                background-size:cover;
-                background-repeat: no-repeat;
-                background-attachment:fixed;
-                */
             }
-            
             .container {
                 width: 100%;
                 max-width: 600px;
                 margin: 0 auto;
             }
             .mobilefullwidth {
-                width: 100% !important;
-                height: auto !important;
+                width: 100%;
+                height: auto;
             }
             .logo {
-                padding-top: 20px !important;
-                padding-bottom: 20px !important;
-                padding-left: 30px !important;
-                padding-right: 30px !important;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                padding-left: 30px;
+                padding-right: 30px;
                 background-color: #198FBF;
             }
-            h1 {
-                font-size: 36px !important;
-                line-height: 48px !important;
-                padding-left: 30px !important;
-                padding-right: 30px !important;
-                text-align: center;
-            }
-            h2 {
-                padding-left: 30px !important;
-                padding-right: 30px !important;
-            }
-            p {
-                font-size: 16px !important;
-                line-height: 24px !important;
-                padding-left: 30px !important;
-                padding-right: 30px !important;
-                text-align: center;
-            }
-
             .post {
                 display: flex;
                 justify-content: center;
+                align-items: center;
             }
 
             .box {
                 background-color: #f2f2f2; 
-                padding: 20px; 
+                max-width: 600px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
                 padding: 10px;
                 margin: 20px 0;
                 border-radius: 10px;
@@ -78,22 +74,37 @@
 
             .content {
                 display: flex;
+                width: 100%;
                 align-items: center; 
                 justify-content: space-between; 
             }
-
-            .left {
+            .informacion {
+                text-align: center;
+            }
+            .left, .right {
                 flex: 1;
+                display: flex;
+                flex-direction: column; 
+                justify-content: center; 
+                align-items: center;
+                text-align: center;
             }
 
-            .right {
-                flex: 1;
-                text-align: right;
+            .contenedor-imagen {
+                max-width: 100%;
+                height: auto;
+            }
+            figure {
+                display: flex;
+                justify-content: center;
+                align-items: center; 
+                height: 100%; 
             }
             .imagen-mail {
                 width: 220px;
                 height: 140px;
                 border-radius: 10px;
+                object-fit: cover;
             }
             .titulo-info {
                 text-align: center;
@@ -105,9 +116,6 @@
                 font-size: 15px;
                 display: inline-block;
                 font-weight: bold;
-                /*
-                background: rgba(252,179,76,0.9);
-                */
                 background: #198FBF;
                 padding: 5px 10px;
             }
@@ -118,6 +126,7 @@
                 text-decoration: none;
                 color: #FFF; 
             }
+            
     </style>
 </head>
 
@@ -155,18 +164,23 @@
                                         <div class="box">
                                             <div class="content">
                                                 <div class="left">
-                                                    <div class="titulo-info">
-                                                        <span><a class="estilo-titulo-info" href="http://www.minaclavero.gov.ar/armatuviaje.html" target="_blank">ARMA TU VIAJE</a></span>
+                                                    <div class="informacion">
+                                                        <div class="titulo-info">
+                                                            <span><a class="estilo-titulo-info" href="http://www.minaclavero.gov.ar/armatuviaje.html" target="_blank">ARMA TU
+                                                                    VIAJE</a></span>
+                                                        </div>
+                                                        <p>Conocé las opciones en alojamientos, gastronomía, excursiones, servicios y las recomendaciones para
+                                                            tu visita!</p>
                                                     </div>
-                                                    <p>Conocé las opciones en alojamientos, gastronomía, excursiones, servicios y las recomendaciones para
-                                                        tu visita!</p>
                                                 </div>
                                                 <div class="right">
-                                                    <figure class="main">
-                                                        <a href="http://www.minaclavero.gov.ar/armatuviaje.html" target="_blank"><img class="imagen-mail"
-                                                                src="https://uploads-ssl.webflow.com/650088f083e7fc5892fdea9e/6500a2e7587c0a431353d6aa_Arma%20tu%20viaje.jpg"
-                                                                alt=""></a>
-                                                    </figure>
+                                                    <div class="contenedor-imagen">
+                                                        <figure>
+                                                            <a href="http://www.minaclavero.gov.ar/armatuviaje.html" target="_blank"><img class="imagen-mail"
+                                                                    src="https://uploads-ssl.webflow.com/650088f083e7fc5892fdea9e/6500a2e7587c0a431353d6aa_Arma%20tu%20viaje.jpg"
+                                                                    alt=""></a>
+                                                        </figure>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -180,17 +194,22 @@
                                         <div class="box">
                                             <div class="content">
                                                 <div class="left">
-                                                    <figure class="main">
-                                                        <a href="http://www.minaclavero.gov.ar/descubriminaclavero.html" target="_blank"><img  class="imagen-mail"
-                                                                src="https://uploads-ssl.webflow.com/650088f083e7fc5892fdea9e/6500b4ca501905aae4c8fcdd_Descubri%20Mina%20Clavero.jpg"
-                                                                alt=""></a>
-                                                    </figure>
+                                                    <div class="contenedor-imagen">
+                                                        <figure>
+                                                            <a href="http://www.minaclavero.gov.ar/descubriminaclavero.html" target="_blank"><img class="imagen-mail"
+                                                                    src="https://uploads-ssl.webflow.com/650088f083e7fc5892fdea9e/6500b4ca501905aae4c8fcdd_Descubri%20Mina%20Clavero.jpg"
+                                                                    alt=""></a>
+                                                        </figure>
+                                                    </div>
                                                 </div>
                                                 <div class="right">
-                                                    <div class="titulo-info">
-                                                        <span><a class="estilo-titulo-info" href="http://www.minaclavero.gov.ar/descubriminaclavero.html" target="_blank">DESCUBRÍ MINA CLAVERO</a></span>
+                                                    <div class="informacion">
+                                                        <div class="titulo-info">
+                                                            <span><a class="estilo-titulo-info" href="http://www.minaclavero.gov.ar/descubriminaclavero.html"
+                                                                    target="_blank">DESCUBRÍ MINA CLAVERO</a></span>
+                                                        </div>
+                                                        <p>Nuestra identidad y la historia que nos une, la ciudad actual y los mejores paisajes de Traslasierra!</p>
                                                     </div>
-                                                    <p>Nuestra identidad y la historia que nos une, la ciudad actual y los mejores paisajes de Traslasierra!</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -204,17 +223,22 @@
                                         <div class="box">
                                             <div class="content">
                                                 <div class="left">
-                                                    <div class="titulo-info">
-                                                        <span><a class="estilo-titulo-info" href="http://www.minaclavero.gov.ar/quehacer.html" target="_blank">¿QUÉ HACER?</a></span>
+                                                    <div class="informacion">
+                                                        <div class="titulo-info">
+                                                            <span><a class="estilo-titulo-info" href="http://www.minaclavero.gov.ar/quehacer.html" target="_blank">¿QUÉ
+                                                                    HACER?</a></span>
+                                                        </div>
+                                                        <p>Date una vuelta por los paradores, conocé todas las actividades culturales, deportivas y agenda de eventos!</p>
                                                     </div>
-                                                    <p>Date una vuelta por los paradores, conocé todas las actividades culturales, deportivas y agenda de eventos!</p>
                                                 </div>
                                                 <div class="right">
-                                                    <figure class="main">
-                                                        <a href="http://www.minaclavero.gov.ar/quehacer.html" target="_blank"><img  class="imagen-mail"
-                                                                src="https://uploads-ssl.webflow.com/650088f083e7fc5892fdea9e/6500b4c95e13f7b9dd826ae2_Que%20Hacer.jpg"
-                                                                alt=""></a>
-                                                    </figure>
+                                                    <div class="contenedor-imagen">
+                                                        <figure class="contenedor-imagen">
+                                                            <a href="http://www.minaclavero.gov.ar/quehacer.html" target="_blank"><img class="imagen-mail"
+                                                                    src="https://uploads-ssl.webflow.com/650088f083e7fc5892fdea9e/6500b4c95e13f7b9dd826ae2_Que%20Hacer.jpg"
+                                                                    alt=""></a>
+                                                        </figure>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -228,17 +252,22 @@
                                         <div class="box">
                                             <div class="content">
                                                 <div class="left">
-                                                    <figure class="main">
-                                                        <a href="http://www.minaclavero.gov.ar/eventos.php" target="_blank"><img  class="imagen-mail"
-                                                                src="https://uploads-ssl.webflow.com/650088f083e7fc5892fdea9e/6500b4c9c7a841caed5cfb41_Agenda%20de%20Eventos.jpg"
-                                                                alt=""></a>
-                                                    </figure>
+                                                    <div class="contenedor-imagen">
+                                                        <figure class="contenedor-imagen">
+                                                            <a href="http://www.minaclavero.gov.ar/eventos.php" target="_blank"><img class="imagen-mail"
+                                                                    src="https://uploads-ssl.webflow.com/650088f083e7fc5892fdea9e/6500b4c9c7a841caed5cfb41_Agenda%20de%20Eventos.jpg"
+                                                                    alt=""></a>
+                                                        </figure>
+                                                    </div>
                                                 </div>
                                                 <div class="right">
-                                                    <div class="titulo-info">
-                                                        <span><a class="estilo-titulo-info" href="http://www.minaclavero.gov.ar/eventos.php" target="_blank">AGENDA DE EVENTOS</a></span>
+                                                    <div class="informacion">
+                                                        <div class="titulo-info">
+                                                            <span><a class="estilo-titulo-info" href="http://www.minaclavero.gov.ar/eventos.php" target="_blank">AGENDA DE
+                                                                    EVENTOS</a></span>
+                                                        </div>
+                                                        <p>Tenemos eventos a lo largo de todo el año, para todos los gustos y edades.</p>
                                                     </div>
-                                                    <p>Tenemos eventos a lo largo de todo el año, para todos los gustos y edades.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -252,17 +281,22 @@
                                         <div class="box">
                                             <div class="content">
                                                 <div class="left">
-                                                    <div class="titulo-info">
-                                                        <span><a class="estilo-titulo-info" href="http://www.minaclavero.gov.ar/senderos.html" target="_blank">SENDEROS URBANOS</a></span>
+                                                    <div class="informacion">
+                                                        <div class="titulo-info">
+                                                            <span><a class="estilo-titulo-info" href="http://www.minaclavero.gov.ar/senderos.html" target="_blank">SENDEROS
+                                                                    URBANOS</a></span>
+                                                        </div>
+                                                        <p>Un recorrido entre la flora y fauna de nuestra ciudad.</p>
                                                     </div>
-                                                    <p>Un recorrido entre la flora y fauna de nuestra ciudad.</p>
                                                 </div>
                                                 <div class="right">
-                                                    <figure class="main">
-                                                        <a href="http://www.minaclavero.gov.ar/senderos.html" target="_blank"><img  class="imagen-mail"
-                                                                src="https://uploads-ssl.webflow.com/650088f083e7fc5892fdea9e/6500b4c95e52c681b053f83b_Senderos%20Urbanos.jpg"
-                                                                alt=""></a>
-                                                    </figure>
+                                                    <div class="contenedor-imagen">
+                                                        <figure class="contenedor-imagen">
+                                                            <a href="http://www.minaclavero.gov.ar/senderos.html" target="_blank"><img class="imagen-mail"
+                                                                    src="https://uploads-ssl.webflow.com/650088f083e7fc5892fdea9e/6500b4c95e52c681b053f83b_Senderos%20Urbanos.jpg"
+                                                                    alt=""></a>
+                                                        </figure>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -276,17 +310,22 @@
                                         <div class="box">
                                             <div class="content">
                                                 <div class="left">
-                                                    <figure class="main">
-                                                        <a href="http://www.minaclavero.gov.ar/recomendaciones.html" target="_blank"><img  class="imagen-mail"
-                                                                src="https://uploads-ssl.webflow.com/650088f083e7fc5892fdea9e/6500b5507c2b574753622599_Mapa%20Turistico.jpg"
-                                                                alt=""></a>
-                                                    </figure>
+                                                    <div class="contenedor-imagen">
+                                                        <figure class="contenedor-imagen">
+                                                            <a href="http://www.minaclavero.gov.ar/recomendaciones.html" target="_blank"><img class="imagen-mail"
+                                                                    src="https://uploads-ssl.webflow.com/650088f083e7fc5892fdea9e/6500b5507c2b574753622599_Mapa%20Turistico.jpg"
+                                                                    alt=""></a>
+                                                        </figure>
+                                                    </div>
                                                 </div>
                                                 <div class="right">
-                                                    <div class="titulo-info">
-                                                        <span><a class="estilo-titulo-info" href="http://www.minaclavero.gov.ar/recomendaciones.html" target="_blank">MAPA TURÍSTICO</a></span>
+                                                    <div class="informacion">
+                                                        <div class="titulo-info">
+                                                            <span><a class="estilo-titulo-info" href="http://www.minaclavero.gov.ar/recomendaciones.html" target="_blank">MAPA
+                                                                    TURÍSTICO</a></span>
+                                                        </div>
+                                                        <p>Google Map con puntos de interés, balnearios, museos, y referencias para tu viaje.</p>
                                                     </div>
-                                                    <p>Google Map con puntos de interés, balnearios, museos, y referencias para tu viaje.</p>
                                                 </div>
                                             </div>
                                         </div>
