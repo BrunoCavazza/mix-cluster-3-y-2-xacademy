@@ -11,18 +11,16 @@
                             (Todos los campos son requeridos)
                         </p>
                         <br>
-                         <!--CAMBIOS SPRINT 3-->
-                         <label>¿En que fechas visitó Mina Clavero?</label>
-                         <mat-date-range-input [formGroup]="turista" [rangePicker]="picker">
+                        <label>¿En que fechas visitó Mina Clavero?*</label>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-input [formGroup]="turista" [rangePicker]="picker">
                            <input matStartDate formControlName="ingreso" placeholder="Ingreso - ">
                            <input matEndDate formControlName="salida" placeholder="Salida">
-                         </mat-date-range-input>
-                         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                         <mat-date-range-picker #picker></mat-date-range-picker>
-                       
-                         <mat-error *ngIf="turista.controls.ingreso.hasError('matStartDateInvalid')">Fecha de ingreso inválida</mat-error>
-                         <mat-error *ngIf="turista.controls.salida.hasError('matEndDateInvalid')">Fecha de salida inválida</mat-error>
-                     <!-- FIN CAMBIOS SPRINT 3-->
+                        </mat-date-range-input>
+                        <mat-date-range-picker #picker></mat-date-range-picker>
+                        <mat-error *ngIf="turista.controls.ingreso.hasError('matStartDateInvalid')">Fecha de ingreso inválida</mat-error>
+                        <mat-error *ngIf="turista.controls.salida.hasError('matEndDateInvalid')">Fecha de salida inválida</mat-error>
+                        <br>
                         <label>Edad* : </label>
                         <input class="inputEdad" type="number" formControlName="edad">
                         <br><br>
@@ -53,7 +51,7 @@
                         <span class="requerido" *ngIf="turista.invalid">* Complete los campos requeridos para continuar.</span>
                         <div class="button-Next-Content">
                             <button mat-button matStepperNext class="buttonNext" [disabled]="turista.invalid">Siguiente</button><br>
-                        </div><br>
+                        </div>
                     </form>
                 </mat-step>
 
@@ -81,11 +79,12 @@
                             <mat-checkbox class="text-radio" color="primary" formControlName="recomendacion">Recomendación</mat-checkbox>
                         </p>
                         <p class="text-radio">Otros: <input class="inputText" type="text" formControlName="otros"></p>
+                        <br>
                         <span class="requerido" *ngIf="!difusion.dirty">* Complete los campos requeridos para continuar.</span>
                         <div class="botonera">
                             <button mat-button matStepperPrevious class="buttonBack">Anterior</button>
                             <button mat-button matStepperNext class="buttonNext" [disabled]="!difusion.dirty">Siguiente</button>
-                        </div><br>
+                        </div>
                     </form>
                 </mat-step>
 
@@ -116,11 +115,12 @@
                             <mat-checkbox class="text-radio" color="primary" formControlName="amabilidad">Por la amabilidad de los vecinos</mat-checkbox>
                         </p>
                         <p class="text-radio">Otros: <input class="inputText" color="primary" type="text" formControlName="otros"></p>
+                        <br>
                         <span class="requerido" *ngIf="!motivo.dirty">* Complete los campos requeridos para continuar.</span>
                         <div class="botonera">
                             <button mat-button matStepperPrevious class="buttonBack">Anterior</button>
                             <button mat-button matStepperNext class="buttonNext" [disabled]="!motivo.dirty">Siguiente</button>
-                        </div><br>
+                        </div>
                     </form>
                 </mat-step>
 
@@ -165,11 +165,12 @@
                             <mat-radio-button class="text-radio" color="primary" value="No">No</mat-radio-button><br>
                             <mat-radio-button class="text-radio" color="primary" value="Si">Si. ¿Cuál?: <input class="inputText" type="text" placeholder="Escriba aquí" formControlName="recibioMaterial"></mat-radio-button><br>
                         </mat-radio-group>
+                        <br>
                         <span class="requerido" *ngIf="reserva.invalid || tipo_hospedaje.invalid || calificacion_hospedaje.invalid || material_informativo.invalid">* Complete los campos requeridos para continuar.</span>
                         <div class="botonera">
                             <button mat-button matStepperPrevious class="buttonBack">Anterior</button>
                             <button mat-button matStepperNext class="buttonNext" [disabled]="reserva.invalid || tipo_hospedaje.invalid || calificacion_hospedaje.invalid || material_informativo.invalid">Siguiente</button>
-                        </div><br>
+                        </div>
                     </form>
                 </mat-step>
 
@@ -187,137 +188,134 @@
                     </form>
                     
                     <form [formGroup]="tipo_inform">
-                        <div *ngIf="oficinaOption.value !== 'No'">
-                        <h2>¿Qué tipo de información solicitó en las oficinas de Turismo de Mina Clavero?</h2>
-                        <p>(Puede marcar más de una opción.)</p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" value="hospedaje" formControlName="hospedaje">Hospedaje</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" value="paseos" formControlName="paseos">Paseos</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" value="eventos" formControlName="eventos">Eventos</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" value="gastronomia" formControlName="gastronomia">Gastronomía</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" value="turismo_aventura" formControlName="turismo_aventura">Turismo Aventura</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" value="servicios" formControlName="servicios">Servicios</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" value="rutas" formControlName="rutas">Rutas</mat-checkbox>
-                        </p>
-                        <p class="text-radio">Otros: <input class="inputText" value="otros" type="text" formControlName="otros"></p>
-                    </div>
+                            <div *ngIf="oficinaOption.value !== 'No'">
+                            <h2>¿Qué tipo de información solicitó en las oficinas de Turismo de Mina Clavero?</h2>
+                            <p>(Puede marcar más de una opción.)</p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" value="hospedaje" formControlName="hospedaje">Hospedaje</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" value="paseos" formControlName="paseos">Paseos</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" value="eventos" formControlName="eventos">Eventos</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" value="gastronomia" formControlName="gastronomia">Gastronomía</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" value="turismo_aventura" formControlName="turismo_aventura">Turismo Aventura</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" value="servicios" formControlName="servicios">Servicios</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" value="rutas" formControlName="rutas">Rutas</mat-checkbox>
+                            </p>
+                            <p class="text-radio">Otros: <input class="inputText" value="otros" type="text" formControlName="otros"></p>
+                        </div>
                     </form>
 
                     <form [formGroup]="medio_informacion">
                         <div *ngIf="oficinaOption.value !== 'No'">
-                        <h2>¿A través de que medio solicitó información en las Oficinas de Turismo de Mina Clavero?</h2>
-                        <p>(Puede marcar más de una opción.)</p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" formControlName="personalmente">Personalmente</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" formControlName="email">Vía email</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" formControlName="facebook">Vía Facebook</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" formControlName="telefonica">Vía Telefónica</mat-checkbox>
-                        </p>
-                        <p class="text-radio">Otros: <input class="inputText" type="text" formControlName="otros"></p>
-                    </div>
+                            <h2>¿A través de que medio solicitó información en las Oficinas de Turismo de Mina Clavero?</h2>
+                            <p>(Puede marcar más de una opción.)</p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" formControlName="personalmente">Personalmente</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" formControlName="email">Vía email</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" formControlName="facebook">Vía Facebook</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" formControlName="telefonica">Vía Telefónica</mat-checkbox>
+                            </p>
+                            <p class="text-radio">Otros: <input class="inputText" type="text" formControlName="otros"></p>
+                        </div>
                     </form>
 
                     <form [formGroup]="tipo_material">
                         <div *ngIf="oficinaOption.value !== 'No'">
-                        <h2>¿Qué tipo de material se le entregó en las Oficinas de Turismo?</h2>
-                        <p>(Puede marcar más de una opción.)</p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" formControlName="folletos">Folletos</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" formControlName="revistas">Revistas</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" formControlName="planos">Planos</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" formControlName="calcomanias">Calcomanías</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" formControlName="guias">Guías de Servicios</mat-checkbox>
-                        </p>
-                    </div>
+                            <h2>¿Qué tipo de material se le entregó en las Oficinas de Turismo?</h2>
+                            <p>(Puede marcar más de una opción.)</p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" formControlName="folletos">Folletos</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" formControlName="revistas">Revistas</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" formControlName="planos">Planos</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" formControlName="calcomanias">Calcomanías</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" formControlName="guias">Guías de Servicios</mat-checkbox>
+                            </p>
+                        </div>
                     </form>
 
                     <form [formGroup]="calificacion_informacion">
                         <div *ngIf="oficinaOption.value !== 'No'">
-                        <h2>¿Cómo evalua el tipo el tipo de información brindada por las Oficinas de Turismo de Mina Clavero?</h2>
-                        <mat-radio-group formControlName="calificacion" aria-label="Seleccione una opción">
-                            <mat-radio-button class="text-radio" color="primary" value="Excelente">Excelente</mat-radio-button><br>
-                            <mat-radio-button class="text-radio" color="primary" value="Muy_buena">Muy Buena</mat-radio-button><br>
-                            <mat-radio-button class="text-radio" color="primary" value="Buena">Buena</mat-radio-button><br>
-                            <mat-radio-button class="text-radio" color="primary" value="Regular">Regular</mat-radio-button><br>
-                            <mat-radio-button class="text-radio" color="primary" value="Mala">Mala</mat-radio-button><br>
-                            <mat-radio-button class="text-radio" color="primary" value="Muy_mala">Muy Mala</mat-radio-button><br>
-                            <mat-radio-button class="text-radio" color="primary" value="Pesima">Pésima</mat-radio-button>
-                        </mat-radio-group>
-                    </div>
+                            <h2>¿Cómo evalua el tipo el tipo de información brindada por las Oficinas de Turismo de Mina Clavero?</h2>
+                            <mat-radio-group formControlName="calificacion" aria-label="Seleccione una opción">
+                                <mat-radio-button class="text-radio" color="primary" value="Excelente">Excelente</mat-radio-button><br>
+                                <mat-radio-button class="text-radio" color="primary" value="Muy_buena">Muy Buena</mat-radio-button><br>
+                                <mat-radio-button class="text-radio" color="primary" value="Buena">Buena</mat-radio-button><br>
+                                <mat-radio-button class="text-radio" color="primary" value="Regular">Regular</mat-radio-button><br>
+                                <mat-radio-button class="text-radio" color="primary" value="Mala">Mala</mat-radio-button><br>
+                                <mat-radio-button class="text-radio" color="primary" value="Muy_mala">Muy Mala</mat-radio-button><br>
+                                <mat-radio-button class="text-radio" color="primary" value="Pesima">Pésima</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
                     </form>
 
                     <form [formGroup]="otra_informacion">
                         <div *ngIf="oficinaOption.value !== 'No'">
-                        <h2>Aparte de la información solicitada, ¿Se le brindó algún otro tipo de información de su interés?</h2>
-                        <mat-radio-group formControlName="informacion" aria-label="Seleccione una opción">
-                            <mat-radio-button class="text-radio" color="primary" value="Si">Si</mat-radio-button><br>
-                            <mat-radio-button class="text-radio" color="primary" value="No">No</mat-radio-button><br>
-                            <p class="text-radio">¿Cuáles?: <input type="text" placeholder="Escriba aquí" formControlName="informacion"></p>
-                        </mat-radio-group>
-                    </div>
+                            <h2>Aparte de la información solicitada, ¿Se le brindó algún otro tipo de información de su interés?</h2>
+                            <mat-radio-group formControlName="informacion" aria-label="Seleccione una opción">
+                                <mat-radio-button class="text-radio" color="primary" value="Si">Si</mat-radio-button><br>
+                                <mat-radio-button class="text-radio" color="primary" value="No">No</mat-radio-button><br>
+                                <p class="text-radio">¿Cuáles?: <input type="text" placeholder="Escriba aquí" formControlName="informacion"></p>
+                            </mat-radio-group>
+                        </div>
                     </form>
 
                     <form [formGroup]="que_informacion">
                         <div *ngIf="oficinaOption.value !== 'No'">
-                        <h2>¿Qué información se le brindó?</h2>
-                        <p>(Puede marcar más de una opción.)</p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" formControlName="espectaculos_MC">Espectáculos en Mina Clavero</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" formControlName="espectaculos_cercanos">Espectáculos en localidades cercanas</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" formControlName="recreacion">Recreación</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" formControlName="deportivas">Actividades Deportivas</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" formControlName="aventuras">Turismo Aventura</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox class="text-radio" color="primary" formControlName="paseos">Paseos</mat-checkbox>
-                        </p>
-                        <p class="text-radio">Otros: <input class="inputText" type="text" formControlName="otros"></p>
-                    </div>
-                    <br>
-                    <span class="requerido" *ngIf="oficinaOption.value !== 'No' && (!tipo_inform.dirty || !medio_informacion.dirty || !tipo_material.dirty || calificacion_informacion.invalid || otra_informacion.invalid || !que_informacion.dirty)">* Complete los campos requeridos para continuar.</span>
-                    <br>
-                    <div class="botonera">
-                        <button mat-button matStepperPrevious class="buttonBack">Anterior</button>
-                        <button mat-button matStepperNext class="buttonNext" [disabled]="oficinaOption.value !== 'No' && (!tipo_inform.dirty || !medio_informacion.dirty || !tipo_material.dirty || calificacion_informacion.invalid || otra_informacion.invalid || !que_informacion.dirty)">Siguiente</button>
-                    </div>
-                    <br>
-                    
-                    </form>
-             
+                            <h2>¿Qué información se le brindó?</h2>
+                            <p>(Puede marcar más de una opción.)</p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" formControlName="espectaculos_MC">Espectáculos en Mina Clavero</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" formControlName="espectaculos_cercanos">Espectáculos en localidades cercanas</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" formControlName="recreacion">Recreación</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" formControlName="deportivas">Actividades Deportivas</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" formControlName="aventuras">Turismo Aventura</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox class="text-radio" color="primary" formControlName="paseos">Paseos</mat-checkbox>
+                            </p>
+                            <p class="text-radio">Otros: <input class="inputText" type="text" formControlName="otros"></p>
+                        </div>
+                        <br>
+                        <span class="requerido" *ngIf="oficinaOption.value !== 'No' && (!tipo_inform.dirty || !medio_informacion.dirty || !tipo_material.dirty || calificacion_informacion.invalid || otra_informacion.invalid || !que_informacion.dirty)">* Complete los campos requeridos para continuar.</span>
+                        <br>
+                        <div class="botonera">
+                            <button mat-button matStepperPrevious class="buttonBack">Anterior</button>
+                            <button mat-button matStepperNext class="buttonNext" [disabled]="oficinaOption.value !== 'No' && (!tipo_inform.dirty || !medio_informacion.dirty || !tipo_material.dirty || calificacion_informacion.invalid || otra_informacion.invalid || !que_informacion.dirty)">Siguiente</button>
+                        </div>                
+                    </form>             
                 </mat-step>
 
                 <!-- Paso 6: RECOMIENDA -->
@@ -338,7 +336,9 @@
                             <mat-radio-button class="text-radio" color="primary" value="No">No</mat-radio-button><br>
                             <p class="text-radio">¿Por qué?: <input class="inputText" type="text" placeholder="Escriba aquí" formControlName="porque"></p>
                         </mat-radio-group>
-                        <span class="requerido" *ngIf="calificacion_MC.invalid || recomendaria.invalid">* Complete los campos requeridos para continuar.</span> </form>
+                        <br>
+                        <span class="requerido" *ngIf="calificacion_MC.invalid || recomendaria.invalid">* Complete los campos requeridos para continuar.</span> 
+                    </form>
                     <div class="botonera">
                         <button mat-button matStepperPrevious class="buttonBack">Anterior</button>
                         <button mat-button matStepperNext [disabled]="calificacion_MC.invalid || recomendaria.invalid" class="buttonNext">Finalizar</button>
