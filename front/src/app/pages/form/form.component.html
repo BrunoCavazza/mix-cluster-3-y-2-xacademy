@@ -79,8 +79,8 @@
                             <mat-checkbox class="text-radio" color="primary" formControlName="recomendacion">Recomendación</mat-checkbox>
                         </p>
                         <p class="text-radio">Otros: <input class="inputText" type="text" formControlName="otros"></p>
-                        <br>
                         <span class="requerido" *ngIf="!difusion.dirty">* Complete los campos requeridos para continuar.</span>
+                        <br><br>
                         <div class="botonera">
                             <button mat-button matStepperPrevious class="buttonBack">Anterior</button>
                             <button mat-button matStepperNext class="buttonNext" [disabled]="!difusion.dirty">Siguiente</button>
@@ -115,8 +115,8 @@
                             <mat-checkbox class="text-radio" color="primary" formControlName="amabilidad">Por la amabilidad de los vecinos</mat-checkbox>
                         </p>
                         <p class="text-radio">Otros: <input class="inputText" color="primary" type="text" formControlName="otros"></p>
-                        <br>
                         <span class="requerido" *ngIf="!motivo.dirty">* Complete los campos requeridos para continuar.</span>
+                        <br><br>
                         <div class="botonera">
                             <button mat-button matStepperPrevious class="buttonBack">Anterior</button>
                             <button mat-button matStepperNext class="buttonNext" [disabled]="!motivo.dirty">Siguiente</button>
@@ -167,6 +167,7 @@
                         </mat-radio-group>
                         <br>
                         <span class="requerido" *ngIf="reserva.invalid || tipo_hospedaje.invalid || calificacion_hospedaje.invalid || material_informativo.invalid">* Complete los campos requeridos para continuar.</span>
+                        <br><br>
                         <div class="botonera">
                             <button mat-button matStepperPrevious class="buttonBack">Anterior</button>
                             <button mat-button matStepperNext class="buttonNext" [disabled]="reserva.invalid || tipo_hospedaje.invalid || calificacion_hospedaje.invalid || material_informativo.invalid">Siguiente</button>
@@ -308,9 +309,8 @@
                             </p>
                             <p class="text-radio">Otros: <input class="inputText" type="text" formControlName="otros"></p>
                         </div>
-                        <br>
                         <span class="requerido" *ngIf="oficinaOption.value !== 'No' && (!tipo_inform.dirty || !medio_informacion.dirty || !tipo_material.dirty || calificacion_informacion.invalid || otra_informacion.invalid || !que_informacion.dirty)">* Complete los campos requeridos para continuar.</span>
-                        <br>
+                        <br><br>
                         <div class="botonera">
                             <button mat-button matStepperPrevious class="buttonBack">Anterior</button>
                             <button mat-button matStepperNext class="buttonNext" [disabled]="oficinaOption.value !== 'No' && (!tipo_inform.dirty || !medio_informacion.dirty || !tipo_material.dirty || calificacion_informacion.invalid || otra_informacion.invalid || !que_informacion.dirty)">Siguiente</button>
@@ -336,8 +336,8 @@
                             <mat-radio-button class="text-radio" color="primary" value="No">No</mat-radio-button><br>
                             <p class="text-radio">¿Por qué?: <input class="inputText" type="text" placeholder="Escriba aquí" formControlName="porque"></p>
                         </mat-radio-group>
-                        <br>
                         <span class="requerido" *ngIf="calificacion_MC.invalid || recomendaria.invalid">* Complete los campos requeridos para continuar.</span> 
+                        <br><br>
                     </form>
                     <div class="botonera">
                         <button mat-button matStepperPrevious class="buttonBack">Anterior</button>
