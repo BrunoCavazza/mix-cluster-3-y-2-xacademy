@@ -54,7 +54,6 @@
                         </div>
                     </form>
                 </mat-step>
-
                 <!-- Paso 2: MEDIO -->
                 <mat-step [stepControl]="difusion">
                     <form [formGroup]="difusion">
@@ -87,7 +86,6 @@
                         </div>
                     </form>
                 </mat-step>
-
                 <!-- Paso 3: MOTIVO -->
                 <mat-step [stepControl]="motivo">
                     <form [formGroup]="motivo">
@@ -123,7 +121,6 @@
                         </div>
                     </form>
                 </mat-step>
-
                 <!-- Paso 4: HOSPEDAJE -->
                 <mat-step [stepControl]="reserva">
                     <h2>En cuanto a su Hospedaje: ¿Ud. llegó a Mina Clavero?*</h2>
@@ -133,7 +130,6 @@
                             <mat-radio-button class="text-radio" color="primary" value="Con reserva">Con Reserva. ¿A través de que medio hizo la reserva? <input type="text" placeholder="Escriba aquí" formControlName="medioReserva"></mat-radio-button><br>
                         </mat-radio-group>
                     </form><br>
-
                     <h2>¿Qué tipo de Hospedaje a tomado?*</h2>
                     <form [formGroup]="tipo_hospedaje">
                         <mat-radio-group formControlName="tipo_hospedaje">
@@ -145,7 +141,6 @@
                             <mat-radio-button class="text-radio" color="primary" value="Otro_hospedaje">Otro: ¿Cuál? <input class="inputText" type="text" placeholder="Escriba aquí" formControlName="tipo_hospedaje"></mat-radio-button><br>
                         </mat-radio-group>
                     </form><br>
-
                     <h2>¿Cómo es el servicio en el hospedaje que ha contratado?*</h2>
                     <form [formGroup]="calificacion_hospedaje">
                         <mat-radio-group formControlName="calificacion_hospedaje">
@@ -158,7 +153,6 @@
                             <mat-radio-button class="text-radio" color="primary" value="Pesima">Pésima</mat-radio-button><br>
                         </mat-radio-group>
                     </form><br>
-
                     <h2>¿Recibió material informativo de la Secretaría de Turismo en el hospedaje donde se alojó?*</h2>
                     <form [formGroup]="material_informativo">
                         <mat-radio-group formControlName="recibioMaterial">
@@ -174,8 +168,6 @@
                         </div>
                     </form>
                 </mat-step>
-
-
                 <!-- Paso 5: OFICINA -->
                 <mat-step [stepControl]="oficina">
                     <form [formGroup]="oficina">
@@ -187,7 +179,6 @@
                             <mat-radio-button class="text-radio" color="primary" value="Terminal">Oficina de la Terminal</mat-radio-button>
                         </mat-radio-group>
                     </form>
-                    
                     <form [formGroup]="tipo_inform">
                             <div *ngIf="oficinaOption.value !== 'No'">
                             <h2>¿Qué tipo de información solicitó en las oficinas de Turismo de Mina Clavero?</h2>
@@ -216,7 +207,6 @@
                             <p class="text-radio">Otros: <input class="inputText" value="otros" type="text" formControlName="otros"></p>
                         </div>
                     </form>
-
                     <form [formGroup]="medio_informacion">
                         <div *ngIf="oficinaOption.value !== 'No'">
                             <h2>¿A través de que medio solicitó información en las Oficinas de Turismo de Mina Clavero?</h2>
@@ -236,7 +226,6 @@
                             <p class="text-radio">Otros: <input class="inputText" type="text" formControlName="otros"></p>
                         </div>
                     </form>
-
                     <form [formGroup]="tipo_material">
                         <div *ngIf="oficinaOption.value !== 'No'">
                             <h2>¿Qué tipo de material se le entregó en las Oficinas de Turismo?</h2>
@@ -258,7 +247,6 @@
                             </p>
                         </div>
                     </form>
-
                     <form [formGroup]="calificacion_informacion">
                         <div *ngIf="oficinaOption.value !== 'No'">
                             <h2>¿Cómo evalua el tipo el tipo de información brindada por las Oficinas de Turismo de Mina Clavero?</h2>
@@ -273,7 +261,6 @@
                             </mat-radio-group>
                         </div>
                     </form>
-
                     <form [formGroup]="otra_informacion">
                         <div *ngIf="oficinaOption.value !== 'No'">
                             <h2>Aparte de la información solicitada, ¿Se le brindó algún otro tipo de información de su interés?</h2>
@@ -284,7 +271,6 @@
                             </mat-radio-group>
                         </div>
                     </form>
-
                     <form [formGroup]="que_informacion">
                         <div *ngIf="oficinaOption.value !== 'No'">
                             <h2>¿Qué información se le brindó?</h2>
@@ -314,10 +300,9 @@
                         <div class="botonera">
                             <button mat-button matStepperPrevious class="buttonBack">Anterior</button>
                             <button mat-button matStepperNext class="buttonNext" [disabled]="oficinaOption.value !== 'No' && (!tipo_inform.dirty || !medio_informacion.dirty || !tipo_material.dirty || calificacion_informacion.invalid || otra_informacion.invalid || !que_informacion.dirty)">Siguiente</button>
-                        </div>                
-                    </form>             
+                        </div>
+                    </form>
                 </mat-step>
-
                 <!-- Paso 6: RECOMIENDA -->
                 <mat-step [stepControl]="calificacion_MC">
                     <form [formGroup]="calificacion_MC">
@@ -328,7 +313,6 @@
                             <p class="text-radio">¿Porque?: <input class="inputText" type="text" placeholder="Escriba aquí" formControlName="porque"></p>
                         </mat-radio-group>
                     </form>
-
                     <form [formGroup]="recomendaria">
                         <h2>¿Recomendaría Mina Clavero como destino turístico?</h2>
                         <mat-radio-group formControlName="recomendaria" aria-label="Seleccione una opción">
@@ -336,7 +320,7 @@
                             <mat-radio-button class="text-radio" color="primary" value="No">No</mat-radio-button><br>
                             <p class="text-radio">¿Por qué?: <input class="inputText" type="text" placeholder="Escriba aquí" formControlName="porque"></p>
                         </mat-radio-group>
-                        <span class="requerido" *ngIf="calificacion_MC.invalid || recomendaria.invalid">* Complete los campos requeridos para continuar.</span> 
+                        <span class="requerido" *ngIf="calificacion_MC.invalid || recomendaria.invalid">* Complete los campos requeridos para continuar.</span>
                         <br><br>
                     </form>
                     <div class="botonera">
