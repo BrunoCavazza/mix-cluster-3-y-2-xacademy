@@ -15,6 +15,7 @@ import { Subscription } from 'rxjs';
 import { FormService } from '../../services/form.service';
 import { ErrorService } from 'src/app/services/error.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import {MatSelectModule} from '@angular/material/select';
 
 /** @title Checkboxes with reactive forms */
 @Component({
@@ -23,7 +24,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['form.component.css'],
   standalone: true,
   imports: [FormsModule, ReactiveFormsModule, MatCheckboxModule, JsonPipe,
-    MatCardModule, MatButtonModule, MatInputModule, MatDatepickerModule, MatNativeDateModule,
+    MatSelectModule, MatCardModule, MatButtonModule, MatInputModule, MatDatepickerModule, MatNativeDateModule,
     MatFormFieldModule, MatStepperModule, MatRadioModule, NgFor, NgIf],
 })
 export class FormComponent implements OnInit, OnDestroy{
@@ -34,7 +35,8 @@ export class FormComponent implements OnInit, OnDestroy{
     procedencia: ['', Validators.required],
     acompaniantes: ['', Validators.required],
     ingreso: new FormControl(<Date | null>(null), Validators.required), // SPRINT 3
-    salida: new FormControl(<Date | null>(null), Validators.required) // SPRINT 3
+    salida: new FormControl(<Date | null>(null), Validators.required), // SPRINT 3
+    meses: [ '', Validators.required],
   });
 
   difusion = this._formBuilder.group({

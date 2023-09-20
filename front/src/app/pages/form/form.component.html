@@ -21,6 +21,27 @@
                         <mat-error *ngIf="turista.controls.ingreso.hasError('matStartDateInvalid')">Fecha de ingreso inválida</mat-error>
                         <mat-error *ngIf="turista.controls.salida.hasError('matEndDateInvalid')">Fecha de salida inválida</mat-error>
                         <br>
+                        <!-- INICIO SPRINT 5-->
+                        <h4>Seleccione el mes de su estadía</h4>
+                        <mat-form-field>
+                            <mat-label>Seleccione un mes</mat-label>
+                            <select matNativeControl required formControlName="meses">
+                              <option value="Enero">Enero</option>
+                              <option value="Febrero">Febrero</option>
+                              <option value="Marzo">Marzo</option>
+                              <option value="Abril">Abril</option>
+                              <option value="Mayo">Mayo</option>
+                              <option value="Junio">Junio</option>
+                              <option value="Julio">Julio</option>
+                              <option value="Agosto">Agosto</option>
+                              <option value="Septiembre">Septiembre</option>
+                              <option value="Octubre">Octubre</option>
+                              <option value="Noviembre">Noviembre</option>
+                              <option value="Diciembre">Diciembre</option>
+                            </select>
+                          </mat-form-field>
+                        <br>
+                        <!-- FIN SPRINT 5-->
                         <label>Edad* : </label>
                         <input class="inputEdad" type="number" formControlName="edad">
                         <br><br>
