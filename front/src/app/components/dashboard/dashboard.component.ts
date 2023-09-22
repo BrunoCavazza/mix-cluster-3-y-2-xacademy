@@ -18,7 +18,10 @@ import {MatInputModule} from '@angular/material/input';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { ContactService } from 'src/app/services/contact.service';
 import { Contact } from 'src/app/interfaces/contact';
-
+import * as XLSX from 'xlsx';
+import { FileSaverService } from 'ngx-filesaver';
+import { HttpClient } from '@angular/common/http';
+import * as FileSaver from 'file-saver';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -49,7 +52,7 @@ export class DashboardComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   
-  constructor(private getService: getService, private _getContacts: ContactService) { }
+  constructor(private getService: getService, private _getContacts: ContactService, private fileSaver: FileSaverService, private http: HttpClient) { }
 
 
   applyFilter() {
@@ -91,13 +94,16 @@ export class DashboardComponent implements OnInit {
   }
 
   export(){
-    this.getService.export().subscribe((buffer:any) => {
-      const data: Blob = new Blob([buffer], {
-        type: "json/csv;charset=utf-8"
-      });
-      saveAs(data, "Hoja_de_datos_Mina_Clavero.csv");
-    })
+    const exportUrl = 'http://localhost:4001/export'; 
+
+    this.http.get(exportUrl, { responseType: 'blob' }).subscribe(
+      (data) => {
+        const blobData: Blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+        FileSaver.saveAs(blobData, 'data.xlsx');
+      },
+      (error) => {
+        console.error('Error al descargar el archivo Excel:', error);
+      }
+    );
   }
-
-
 }

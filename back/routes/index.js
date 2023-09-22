@@ -9,9 +9,8 @@ const Express = require('express');
 const { DataTypes } = require('sequelize');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
-const mysql = require("mysql2");
-const data_export = require('json2csv').Parser;
-
+const mysql = require('mysql2');
+const excelJs = require('exceljs');
 // Middlewares:
 const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
@@ -141,17 +140,60 @@ app.post('/newsletter', async (req, res) => {
 
 app.get('/export', (req, res, next) => {
   connection.query('SELECT * FROM surveys', (err, data) => {
-    const mysql_data = JSON.parse(JSON.stringify(data));
+    if (err) {
+      console.error('Error al ejecutar la consulta SQL:', err);
+      return res.status(500).json({ error: 'Error en el servidor' });
+    }
 
-    const file_header = ['Turista', 'Difusion', 'Motivo', 'Reserva', 'Tipo Hospedaje', 'Calificacion Hospedaje', 'Material Informativo', 'Oficina', 'Tipo Informacion', 'Medio Informacion', 'Tipo Material', 'Calificacion Informacion', 'Otra Informacion', 'Que Informacion', 'Calificacion MC', 'Recomendaria']
+    const mysqlData = JSON.parse(JSON.stringify(data));
 
-    const json_data = new data_export({file_header})
+    try {
+      const fileHeader = [
+        { header: 'Turista', key: 'Turista' },
+        { header: 'Difusion', key: 'Difusion' },
+        { header: 'Motivo', key: 'Motivo' },
+        { header: 'Reserva', key: 'Reserva' },
+        { header: 'Tipo Hospedaje', key: 'Tipo_Hospedaje' },
+        { header: 'Calificacion Hospedaje', key: 'Calificacion_Hospedaje' },
+        { header: 'Material Informativo', key: 'Material_Informativo' },
+        { header: 'Oficina', key: 'Oficina' },
+        { header: 'Tipo Informacion', key: 'Tipo_Informacion' },
+        { header: 'Medio Informacion', key: 'Medio_Informacion' },
+        { header: 'Tipo Material', key: 'Tipo_Material' },
+        { header: 'Calificacion Informacion', key: 'Calificacion_Informacion' },
+        { header: 'Otra Informacion', key: 'Otra_Informacion' },
+        { header: 'Que Informacion', key: 'Que_Informacion' },
+        { header: 'Calificacion MC', key: 'Calificacion_MC' },
+        { header: 'Recomendaria', key: 'Recomendaria' },
+        { header: 'createdAt', key: 'createdAt' },
+        { header: 'updatedAt', key: 'updatedAt' },
+      ];
 
-    const csv_data = json_data.parse(mysql_data);
+      const workbook = new excelJs.Workbook();
+      const sheet = workbook.addWorksheet('data');
+      sheet.columns = fileHeader;
 
-    res.setHeader('Content-Type', 'text/csv');
-    res.setHeader('Content-Disposition', 'attachment; filename=data_surveyMC.csv');
-    res.status(200).end(csv_data);
+      mysqlData.forEach((row) => {
+        sheet.addRow(row);
+      });
+
+      res.setHeader(
+        'Content-Type',
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      );
+      res.setHeader(
+        'Content-Disposition',
+        'attachment; filename=data.xlsx',
+      );
+
+      workbook.xlsx.write(res)
+        .then(() => {
+          res.end();
+        });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: 'Error en el servidor' });
+    }
   });
 });
 
