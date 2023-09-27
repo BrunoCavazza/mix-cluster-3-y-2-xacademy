@@ -29,11 +29,36 @@ table {
     align-items: center;
  
   }
+
   .titulo{
   margin-left: 15%;
   margin-top: 10px;
   }
+
+  h2{
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(7, 134, 202);
+  }
   
+  button{
+    font-family: 'Karla', sans-serif;
+  }
+
+  .navegacion{
+    font-family: 'Karla', sans-serif;
+  }
+
+  .tituloPregunta{
+    font-family: 'Karla', sans-serif;
+    font-weight: bold;
+
+  }
+
+  button:hover{
+    cursor: pointer;
+    background-color: rgba(7, 134, 202);
+    color: white;
+  }
 
   .id{
     min-width:  400px;
@@ -56,6 +81,10 @@ table {
     flex-wrap: wrap;
     margin: -10px;
     max-height: 400px;
+  }
+
+  .prueba:hover {
+    cursor: pointer;
   }
   
   .example-element-diagram {
@@ -86,6 +115,13 @@ table {
     font-weight: 100;
   }
   
+
+  /* .prueba{
+    display: flex;
+  } */
+
+
+
   /* Media Queries */
 @media (max-width: 992px) {
   h2{
@@ -94,7 +130,7 @@ table {
 
   .titulo{
     margin-left: 10px;
-    
+    margin-right: 20px;
     }
 
 
@@ -131,7 +167,21 @@ table {
 
 }
 
-@media (max-width: 576px) {
 
- 
+@media (max-width: 576px) {
+  h2{
+    font-size: 15px;
+  }
+
+  .contenedor{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .boton_exportar{
+    font-size: 13px;
+    margin-top: 15px;
+  }
+
 }

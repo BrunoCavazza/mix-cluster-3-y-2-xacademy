@@ -1,6 +1,6 @@
-<h2>Elegir gráfico que desea ver</h2>
+<h3>¿Qué gráfico desea ver?</h3>
 <mat-form-field>
-  <mat-label>Charts</mat-label>
+  <mat-label>Categorías</mat-label>
   <select [(ngModel)]="selectedChartName" matNativeControl required>
     <option *ngFor="let chartName of chartNames" [value]="chartName">{{ chartName }}</option>
   </select>
@@ -8,40 +8,38 @@
 
 
 <div class="contenedor">
-<div *ngIf="selectedChartName === 'Turista'" class="turista">
+<div *ngIf="selectedChartName === 'Turista'" class="turista individual">
     
-    <div style="justify-content: center;">
-      <h2>GRÁFICA DE GENEROS</h2>
-    <canvas baseChart
+    <div class="contenedorGraficos">
+      <h2> Gráfica de Géneros</h2>
+      <canvas baseChart
       [type]="'pie'"
       [datasets]="pieChartDatasets"
       [labels]="pieChartLabels"
       [options]="pieChartOptions"
       [legend]="true"
-      
-    ></canvas>
-</div>
+      ></canvas>
+    </div>
   </div>
 
-<div *ngIf="selectedChartName === 'Turista'" class="turista" >
-    
-    <div style="justify-content: center;">
-      <h2>GRÁFICA DE EDAD</h2>
-    <canvas baseChart
+  <div *ngIf="selectedChartName === 'Turista'" class="turista" >
+    <div class="contenedorGraficos">
+      <h2>Gráfica de Edad</h2>
+      <canvas baseChart
       [type]="'pie'"
       [datasets]="pieChartDatasetsEdad"
       [labels]="pieChartLabelsEdad"
       [options]="pieChartOptions"
       [legend]="true"
       
-    ></canvas>
-</div>
+      ></canvas>
+    </div>
   </div>
 
   <div *ngIf="selectedChartName === 'Turista'" class="turista" >
    
-    <div style="justify-content: center;">
-      <h2>GRÁFICA DE PROCEDENCIA</h2>
+    <div class="contenedorGraficos">
+      <h2>Gráfica de Procedencia</h2>
     <canvas baseChart
       [type]="'bar'"
       [data]="barChartData"
@@ -55,9 +53,9 @@
 
   <div *ngIf="selectedChartName === 'Medios'" >
     
-    <div style="justify-content: center;" >
-      <h2>¿A través de qué medio conoció el destino Mina Clavero?</h2>
-    <canvas baseChart style="margin-left: 100px"
+    <div class="contenedorGraficos" >
+      <h2>Medios de Difusión</h2>
+    <canvas baseChart
       [type]="'pie'"
       [datasets]="pieChartDatasetsDifusion"
       [labels]="pieChartLabelsDifusion"
@@ -70,7 +68,7 @@
 
   <div *ngIf="selectedChartName === 'Motivo'" >
     
-    <div style="justify-content: center;">
+    <div class="contenedorGraficos">
       <h2>¿Por qué motivo eligió Mina Clavero para pasar sus vacaciones?</h2>
     <canvas baseChart
       [type]="'bar'"
@@ -85,9 +83,9 @@
 
   <div *ngIf="selectedChartName === 'Hospedaje'" style="display: block;">
     
-    <div style="justify-content: center;">
-      <h2>En cuanto a su Hospedaje: ¿Ud. llegó a Mina Clavero?</h2>
-    <canvas baseChart style="margin-left: 75px"
+    <div class="contenedorGraficos">
+      <h2>Reserva</h2>
+    <canvas baseChart 
       [type]="'pie'"
       [datasets]="pieChartDatasetsReserva"
       [labels]="pieChartLabelsReserva"
@@ -101,8 +99,8 @@
   
   <div *ngIf="selectedChartName === 'Hospedaje'" style="display: block; margin-top: 50px;">
    
-    <div style="justify-content: center;">
-      <h2>¿Qué tipo de Hospedaje ha contratado?</h2>
+    <div class="contenedorGraficos">
+      <h2>Tipo de Hospedaje</h2>
     <canvas baseChart
       [type]="'bar'"
       [datasets]="barChartDataTipoHospedaje.datasets"
@@ -117,9 +115,9 @@
   
   <div *ngIf="selectedChartName === 'Hospedaje'" style="display: block;">
 
-    <div style="justify-content: center;">
-      <h2>¿Cómo es el servicio en el hospedaje que ha contratado?</h2>
-    <canvas baseChart style="margin-left: 100px"
+    <div class="contenedorGraficos">
+      <h2>Calificación del Servicio</h2>
+    <canvas baseChart
       [type]="'pie'"
       [datasets]="pieChartDatasetsCalificacionH"
       [labels]="pieChartLabelsCalificacionH"
@@ -132,9 +130,9 @@
 
   <div *ngIf="selectedChartName === 'Oficina'" style="display: block;">
     
-    <div style="justify-content: center;">
-      <h2>¿Ud. pidió información en las oficinas de Turismo de Mina Clavero? ¿En que oficina lo hizo?</h2>
-    <canvas baseChart style="margin-left: 75px"
+    <div class="contenedorGraficos">
+      <h2>Solicitud de infromación en oficina</h2>
+    <canvas baseChart 
       [type]="'pie'"
       [datasets]="pieChartDatasetsOficinaOption"
       [labels]="pieChartLabelsOficinaOption"
@@ -147,8 +145,8 @@
 
   <div *ngIf="selectedChartName === 'Oficina'" style="display: block; margin-top: 50px;">
  
-    <div style="justify-content: center;">
-      <h2>¿Qué tipo de información solicitó en las oficinas de Turismo de Mina Clavero?</h2>
+    <div class="contenedorGraficos">
+      <h2>Tipo de Información</h2>
     <canvas baseChart
       [type]="'bar'"
       [data]="barChartDataTipoInformacion"
@@ -162,9 +160,9 @@
   
   <div *ngIf="selectedChartName === 'Oficina'" style="display: block;">
     
-    <div style="justify-content: center;">
-      <h2>¿Cómo evalua el tipo el tipo de información brindada por las Oficinas de Turismo de Mina Clavero?</h2>
-    <canvas baseChart style="margin-left: 100px"
+    <div class="contenedorGraficos">
+      <h2>Calificación de la información</h2>
+    <canvas baseChart 
       [type]="'pie'"
       [datasets]="pieChartDatasetsCalificacionI"
       [labels]="pieChartLabelsCalificacionI"
@@ -177,9 +175,9 @@
 
   <div *ngIf="selectedChartName === 'Recomendaria'" style="display: block;">
     
-    <div style="justify-content: center;">
-      <h2>¿Considera a Mina Clavero como un destino completo en cuanto a su oferta y servicios?</h2>
-    <canvas baseChart style="margin-left: 150px;"
+    <div class="contenedorGraficos">
+      <h2>¿Considera Mina Clavero un destino completo?</h2>
+    <canvas baseChart class="corrector2"
       [type]="'pie'"
       [datasets]="pieChartDatasetsCalificacionMC"
       [labels]="pieChartLabelsCalificacionMC"
@@ -191,18 +189,15 @@
   </div>
 
   <div *ngIf="selectedChartName === 'Recomendaria'" style="display: block;">
-    
-    <div style="justify-content: center;">
+    <div class="contenedorGraficos">
       <h2>¿Recomendaría Mina Clavero como destino turístico?</h2>
-    <canvas baseChart style="margin-left: 75px;"
+      <canvas baseChart class="corrector"
       [type]="'pie'"
       [datasets]="pieChartDatasetsRecomendaria"
       [labels]="pieChartLabelRecomendaria"
       [options]="pieChartOptions"
       [legend]="true"
-      
-    ></canvas>
-</div>
+      ></canvas>
+    </div>
   </div>
-
 </div>
