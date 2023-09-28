@@ -18,8 +18,7 @@ import {MatInputModule} from '@angular/material/input';
 export class ChartComponent implements OnInit {
   selectedChartName: string;
   chartNames: string[] = ['-', 'Turista', 'Medios', 'Motivo', 'Hospedaje', 'Oficina', 'Recomendaria'];
-
-
+  
   public pieChartOptions: ChartOptions<'pie'> = {
     responsive: false, 
   };
@@ -55,8 +54,6 @@ otraLocalidad = 0;
 otraProvincia = 0;
 otroPais = 0;
 
-  // public pieChartLabelsProcedencia = [['Ciudad de Córdoba'], ['Otra localidad'], ['Otra provincia'], ['Otro país'], ];
-  // public pieChartDatasetsProcedencia = [{ data: [this.cordoba, this.otraLocalidad, this.otraProvincia, this.otroPais]}]
 
   public barChartData: ChartConfiguration<'bar'>['data'] = {
     labels: [ ['Ciudad de Córdoba'], ['Otra localidad'], ['Otra provincia'], ['Otro país'] ],
@@ -230,12 +227,82 @@ otroPais = 0;
             'rgb(25, 99, 132)'], hoverBackgroundColor: ['rgb(54, 162, 235)',
             'rgb(255, 99, 132)'] } ];
 
+    // mes?
+
+    enero = 0;
+    febrero = 0;
+    marzo = 0;
+    abril = 0;
+    mayo = 0;
+    junio = 0;
+    julio = 0;
+    agosto = 0;
+    septiembre = 0;
+    octubre = 0;
+    noviembre = 0;
+    diciembre = 0;
+
+    public barChartDataMes: ChartConfiguration<'bar'>['data'] = {
+      labels: [ ['Enero'], ['Febrero'], ['Marzo'], ['Abril'],['Mayo'], ['Junio'], ['Julio'], ['Agosto'], ['Septiembre'],['Octubre'], ['Noviembre'], ['Diciembre'] ],
+      datasets: [
+        { data: [this.enero, this.febrero, this.marzo, this.abril,this.mayo,this.junio,this.julio,this.agosto,this.septiembre,this.octubre,this.noviembre,this.diciembre]}
+      ]
+    };
+
   constructor(private http: HttpClient) { 
     this.selectedChartName = this.chartNames[0];
   }  
    ngOnInit() {
 
     this.http.get<any>('http://localhost:4001/getall').subscribe(data => {
+
+      // INGRESO POR GÉNERO
+      const ingresoPorGenero = data.map(item => {
+        return {
+          ingreso: new Date(item.Turista.ingreso)
+        };
+      });
+  
+      ingresoPorGenero.forEach(item => {
+        const month = item.ingreso.getMonth();
+        // Incrementa el contador de ingresos por mes
+        // Sin importar el género
+        if(month === 0){
+          this.enero++;
+        } else if(month === 1){
+          this.febrero++;
+        } else if(month === 2){
+          this.marzo++;
+        } else if(month === 3){
+          this.abril++;
+        } else if(month === 4){
+          this.mayo++;
+        } else if(month === 5){
+          this.junio++;
+        } else if(month === 6){
+          this.julio++;
+        } else if(month === 7){
+          this.agosto++;
+        } else if(month === 8){
+          this.septiembre++;
+        } else if(month === 9){
+          this.octubre++;
+        } else if(month === 10){
+          this.noviembre++;
+        } else if(month === 11){
+          this.diciembre++;
+        } 
+        
+      });
+      this.barChartDataMes = {
+        labels: [ ['Enero'], ['Febrero'], ['Marzo'], ['Abril'],['Mayo'], ['Junio'], ['Julio'], ['Agosto'], ['Septiembre'],['Octubre'], ['Noviembre'], ['Diciembre'] ],
+        datasets: [
+          { data: [this.enero, this.febrero, this.marzo, this.abril,this.mayo,this.junio,this.julio,this.agosto,this.septiembre,this.octubre,this.noviembre,this.diciembre]}
+        ]
+      };
+  
+  
+    
   // GENERO
     const genero = data.map(item => item.Turista.sexo);
 

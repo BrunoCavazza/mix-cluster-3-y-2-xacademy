@@ -49,6 +49,20 @@
     ></canvas>
 </div>
   </div>
+  <div *ngIf="selectedChartName === 'Turista'" class="turista">
+   
+    <div class="contenedorGraficos">
+      <h2>Mes de Estadia</h2>
+    <canvas baseChart
+      [type]="'bar'"
+      [datasets]="barChartDataMes.datasets"
+      [labels]="barChartDataMes.labels"
+      [options]="chartOptionsBar"
+      [legend]="false"
+      
+    ></canvas>
+</div>
+  </div>
 
 
   <div *ngIf="selectedChartName === 'Medios'" >
