@@ -3,6 +3,8 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable consistent-return */
 // eslint-disable-next-line import/extensions, import/no-unresolved
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable quotes */
 
 const fs = require('fs');
 const Express = require('express');
@@ -11,6 +13,7 @@ const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const mysql = require('mysql2');
 const excelJs = require('exceljs');
+const format = require('date-fns/format');
 // Middlewares:
 const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
@@ -18,12 +21,13 @@ const rootPath = require('../middleware/root_path.middleware');
 const errors = require('../middleware/error_handler.middleware');
 const { sequelize } = require('../models');
 const surveyController = require('../controllers/surveyControllers');
-const contactoController = require('../controllers/contactoController')
+const contactoController = require('../controllers/contactoController');
 
 const Survey = require('../models/survey')(sequelize, DataTypes);
 const User = require('../models/user')(sequelize, DataTypes);
 const Contacto = require('../models/contacto')(sequelize, DataTypes);
 const validateToken = require('./validate-token');
+
 const htmlContent = fs.readFileSync('./utils/panfleto-mail.html', 'utf-8');
 const app = Express();
 
@@ -148,34 +152,130 @@ app.get('/export', (req, res, next) => {
     const mysqlData = JSON.parse(JSON.stringify(data));
 
     try {
+      const workbook = new excelJs.Workbook();
+      const sheet = workbook.addWorksheet('data');
+
+      // Define las cabeceras de las columnas
       const fileHeader = [
         { header: 'ID', key: 'id' },
-        { header: 'Turista', key: 'Turista' },
-        { header: 'Difusion', key: 'Difusion' },
+        { header: 'Edad', key: 'Turista.edad' },
+        { header: 'Sexo', key: 'Turista.sexo' },
+        { header: 'Procedencia', key: 'Turista.procedencia' },
+        { header: 'Acompañantes', key: 'Turista.acompaniantes' },
+        { header: 'Fecha de Ingreso', key: 'Turista.ingreso' },
+        { header: 'Fecha de Salida', key: 'Turista.salida' },
+        // Otras columnas aquí
+        { header: 'Difusion', key: 'Difusion' }, // Columna Difusion para opciones marcadas como true
         { header: 'Motivo', key: 'Motivo' },
-        { header: 'Reserva', key: 'Reserva' },
-        { header: 'Tipo Hospedaje', key: 'Tipo_Hospedaje' },
-        { header: 'Calificacion Hospedaje', key: 'Calificacion_Hospedaje' },
-        { header: 'Material Informativo', key: 'Material_Informativo' },
-        { header: 'Oficina', key: 'Oficina' },
-        { header: 'Tipo Informacion', key: 'Tipo_Informacion' },
-        { header: 'Medio Informacion', key: 'Medio_Informacion' },
-        { header: 'Tipo Material', key: 'Tipo_Material' },
-        { header: 'Calificacion Informacion', key: 'Calificacion_Informacion' },
-        { header: 'Otra Informacion', key: 'Otra_Informacion' },
-        { header: 'Que Informacion', key: 'Que_Informacion' },
-        { header: 'Calificacion MC', key: 'Calificacion_MC' },
-        { header: 'Recomendaria', key: 'Recomendaria' },
+        { header: 'Reserva', key: 'Reserva.reserva' },
+        { header: 'Tipo de Hospedaje', key: 'Tipo_Hospedaje.tipo_hospedaje' },
+        { header: 'Calificacion del Hospedaje', key: 'Calificacion_Hospedaje.calificacion_hospedaje' },
+        { header: 'Material Informativo', key: 'Material_Informativo.recibioMaterial' },
+        { header: 'Oficina', key: 'Oficina.oficinaOption' },
+        { header: 'Tipo de Informacion', key: 'Tipo_Informacion' },
+        { header: 'Medio de Informacion', key: 'Medio_Informacion' },
+        { header: 'Tipo de Material', key: 'Tipo_Material' },
+        { header: 'Calificacion de Informacion', key: 'Calificacion_Informacion.calificacion' },
+        { header: 'Otra Informacion', key: 'Otra_Informacion.informacion' },
+        { header: 'Que otra Informacion', key: 'Que_Informacion' },
+        { header: 'Calificacion a Mina Clavero', key: 'Calificacion_MC.calificacion_MC' },
+        { header: 'Recomendaria', key: 'Recomendaria.recomendaria' },
         { header: 'createdAt', key: 'createdAt' },
         { header: 'updatedAt', key: 'updatedAt' },
       ];
 
-      const workbook = new excelJs.Workbook();
-      const sheet = workbook.addWorksheet('data');
       sheet.columns = fileHeader;
 
+      // Llena las filas con los datos
       mysqlData.forEach((row) => {
-        sheet.addRow(row);
+        const rowData = {
+          id: row.id,
+          'Turista.edad': row.Turista.edad,
+          'Turista.sexo': row.Turista.sexo,
+          'Turista.procedencia': row.Turista.procedencia,
+          'Turista.acompaniantes': row.Turista.acompaniantes,
+          'Turista.ingreso': row.Turista.ingreso ? format(new Date(row.Turista.ingreso), 'dd-MM-yyyy HH:mm:ss') : '',
+          'Turista.salida': row.Turista.salida ? format(new Date(row.Turista.salida), 'dd-MM-yyyy HH:mm:ss') : '',
+          'Reserva.reserva': row.Reserva.reserva,
+          'Tipo_Hospedaje.tipo_hospedaje': row.Tipo_Hospedaje.tipo_hospedaje,
+          'Calificacion_Hospedaje.calificacion_hospedaje': row.Calificacion_Hospedaje.calificacion_hospedaje,
+          'Material_Informativo.recibioMaterial': row.Material_Informativo.recibioMaterial,
+          'Oficina.oficinaOption': row.Oficina.oficinaOption,
+          'Calificacion_Informacion.calificacion': row.Calificacion_Informacion.calificacion,
+          'Otra_Informacion.informacion': row.Otra_Informacion.informacion,
+          'Calificacion_MC.calificacion_MC': row.Calificacion_MC.calificacion_MC,
+          'Recomendaria.recomendaria': row.Recomendaria.recomendaria,
+          createdAt: row.createdAt ? format(new Date(row.createdAt), 'dd-MM-yyyy HH:mm:ss') : '',
+          updatedAt: row.updatedAt ? format(new Date(row.updatedAt), 'dd-MM-yyyy HH:mm:ss') : '',
+          Difusion: '',
+          Motivo: '',
+          Tipo_Informacion: '',
+          Medio_Informacion: '',
+          Tipo_Material: '',
+          Que_Informacion: '',
+        };
+
+        // Difusion
+        const difusionOptions = row.Difusion;
+        const DOptions = [];
+        for (const option in difusionOptions) {
+          if (difusionOptions[option]) {
+            DOptions.push(option);
+          }
+        }
+        rowData.Difusion = DOptions.join(', ');
+
+        // Motivo
+        const motivoOptions = row.Motivo;
+        const MOptions = [];
+        for (const option in motivoOptions) {
+          if (motivoOptions[option]) {
+            MOptions.push(option);
+          }
+        }
+        rowData.Motivo = MOptions.join(', ');
+
+        // Tipo Informacion
+        const tipoInformacionOptions = row.Tipo_Informacion;
+        const TIOptions = [];
+        for (const option in tipoInformacionOptions) {
+          if (tipoInformacionOptions[option]) {
+            TIOptions.push(option);
+          }
+        }
+        rowData.Tipo_Informacion = TIOptions.join(', ');
+
+        // Medio Informacion
+        const medioInformacionOptions = row.Medio_Informacion;
+        const MIOptions = [];
+        for (const option in medioInformacionOptions) {
+          if (medioInformacionOptions[option]) {
+            MIOptions.push(option);
+          }
+        }
+        rowData.Medio_Informacion = MIOptions.join(', ');
+
+        // Tipo Material
+        const tipoMaterialOptions = row.Tipo_Material;
+        const TMOptions = [];
+        for (const option in tipoMaterialOptions) {
+          if (tipoMaterialOptions[option]) {
+            TMOptions.push(option);
+          }
+        }
+        rowData.Tipo_Material = TMOptions.join(', ');
+
+        // Que Informacion
+        const queInformacionOptions = row.Que_Informacion;
+        const QIOptions = [];
+        for (const option in queInformacionOptions) {
+          if (queInformacionOptions[option]) {
+            QIOptions.push(option);
+          }
+        }
+        rowData.Que_Informacion = QIOptions.join(', ');
+
+        sheet.addRow(rowData);
       });
 
       res.setHeader(
