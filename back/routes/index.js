@@ -157,31 +157,32 @@ app.get('/export', (req, res, next) => {
 
       // Define las cabeceras de las columnas
       const fileHeader = [
-        { header: 'ID', key: 'id' },
-        { header: 'Edad', key: 'Turista.edad' },
-        { header: 'Sexo', key: 'Turista.sexo' },
-        { header: 'Procedencia', key: 'Turista.procedencia' },
-        { header: 'Acompañantes', key: 'Turista.acompaniantes' },
-        { header: 'Fecha de Ingreso', key: 'Turista.ingreso' },
-        { header: 'Fecha de Salida', key: 'Turista.salida' },
+
+        { header: 'ID', key: 'id', width: 10 },
+        { header: 'Edad', key: 'Turista.edad', width: 10 },
+        { header: 'Sexo', key: 'Turista.sexo', width: 15 },
+        { header: 'Procedencia', key: 'Turista.procedencia', width: 30 },
+        { header: 'Acompañantes', key: 'Turista.acompaniantes', width: 30 },
+        { header: 'Fecha de Ingreso', key: 'Turista.ingreso', width: 30 },
+        { header: 'Fecha de Salida', key: 'Turista.salida', width: 30 },
         // Otras columnas aquí
-        { header: 'Difusion', key: 'Difusion' }, // Columna Difusion para opciones marcadas como true
-        { header: 'Motivo', key: 'Motivo' },
-        { header: 'Reserva', key: 'Reserva.reserva' },
-        { header: 'Tipo de Hospedaje', key: 'Tipo_Hospedaje.tipo_hospedaje' },
-        { header: 'Calificacion del Hospedaje', key: 'Calificacion_Hospedaje.calificacion_hospedaje' },
-        { header: 'Material Informativo', key: 'Material_Informativo.recibioMaterial' },
-        { header: 'Oficina', key: 'Oficina.oficinaOption' },
-        { header: 'Tipo de Informacion', key: 'Tipo_Informacion' },
-        { header: 'Medio de Informacion', key: 'Medio_Informacion' },
-        { header: 'Tipo de Material', key: 'Tipo_Material' },
-        { header: 'Calificacion de Informacion', key: 'Calificacion_Informacion.calificacion' },
-        { header: 'Otra Informacion', key: 'Otra_Informacion.informacion' },
-        { header: 'Que otra Informacion', key: 'Que_Informacion' },
-        { header: 'Calificacion a Mina Clavero', key: 'Calificacion_MC.calificacion_MC' },
-        { header: 'Recomendaria', key: 'Recomendaria.recomendaria' },
-        { header: 'createdAt', key: 'createdAt' },
-        { header: 'updatedAt', key: 'updatedAt' },
+        { header: 'Difusion', key: 'Difusion', width: 30 }, // Columna Difusion para opciones marcadas como true
+        { header: 'Motivo', key: 'Motivo', width: 30 },
+        { header: 'Reserva', key: 'Reserva.reserva', width: 30 },
+        { header: 'Tipo de Hospedaje', key: 'Tipo_Hospedaje.tipo_hospedaje', width: 30 },
+        { header: 'Calificacion del Hospedaje', key: 'Calificacion_Hospedaje.calificacion_hospedaje', width: 30 },
+        { header: 'Material Informativo', key: 'Material_Informativo.recibioMaterial', width: 30 },
+        { header: 'Oficina', key: 'Oficina.oficinaOption', width: 30 },
+        { header: 'Tipo de Informacion', key: 'Tipo_Informacion', width: 40 },
+        { header: 'Medio de Informacion', key: 'Medio_Informacion', width: 40 },
+        { header: 'Tipo de Material', key: 'Tipo_Material', width: 30 },
+        { header: 'Calificacion de Informacion', key: 'Calificacion_Informacion.calificacion', width: 30 },
+        { header: 'Otra Informacion', key: 'Otra_Informacion.informacion', width: 25 },
+        { header: 'Que otra Informacion', key: 'Que_Informacion', width: 50 },
+        { header: 'Calificacion a Mina Clavero', key: 'Calificacion_MC.calificacion_MC', width: 30 },
+        { header: 'Recomendaria', key: 'Recomendaria.recomendaria', width: 20 },
+        { header: 'createdAt', key: 'createdAt', width: 25 },
+        { header: 'updatedAt', key: 'updatedAt', width: 25 },
       ];
 
       sheet.columns = fileHeader;
