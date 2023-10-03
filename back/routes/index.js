@@ -157,6 +157,7 @@ app.get('/export', (req, res, next) => {
 
       // Define las cabeceras de las columnas
       const fileHeader = [
+
         { header: 'ID', key: 'id', width: 10 },
         { header: 'Edad', key: 'Turista.edad', width: 10 },
         { header: 'Sexo', key: 'Turista.sexo', width: 15 },

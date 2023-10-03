@@ -111,15 +111,16 @@ table {
   }
   
   .pregunta{
+    font-family: 'Karla', sans-serif;
     font-size: 20px;
-    font-weight: 100;
+    font-weight: bold;
+    color: rgba(7, 134, 202);
   }
   
-
-  /* .prueba{
-    display: flex;
-  } */
-
+  .resumen{
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(7, 134, 202);
+  }
 
 
   /* Media Queries */
