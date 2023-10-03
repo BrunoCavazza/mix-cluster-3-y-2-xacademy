@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,6 +10,12 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddTokenInterceptor } from './utils/add-token.interceptor';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+import { registerLocaleData, CommonModule } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+
+
+registerLocaleData(localeEs, 'es');
 
 @NgModule({
   declarations: [
@@ -17,8 +23,10 @@ import { AddTokenInterceptor } from './utils/add-token.interceptor';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
+
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -32,7 +40,8 @@ import { AddTokenInterceptor } from './utils/add-token.interceptor';
     }), // ToastrModule added
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true },
+    { provide: LOCALE_ID, useValue: 'es'}
   ],
   bootstrap: [AppComponent]
 })

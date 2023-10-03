@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/interfaces/user';
 import { ErrorService } from 'src/app/services/error.service';
 import { UserService } from 'src/app/services/user.service';
+import { AuthGuard } from 'src/app/utils/auth.guard';
 
 @Component({
   selector: 'app-login',
@@ -18,8 +19,9 @@ export class LoginComponent implements OnInit {
 
   constructor(private toastr: ToastrService,
     private _userService: UserService,
+    private _authGuard: AuthGuard,
     private router: Router,
-    private _errorService: ErrorService) { }
+    private _errorService: ErrorService) { if(_userService.loggedIn){this.router.navigate(['/dashboard'])}  }
 
   ngOnInit(): void {
   }

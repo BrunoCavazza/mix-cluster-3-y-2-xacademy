@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {  CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { FormRoutingModule, } from './form-routing.module';
-
 
 
 @NgModule({
@@ -14,4 +12,6 @@ import { FormRoutingModule, } from './form-routing.module';
     FormsModule
   ]
 })
-export class FormModule { }
+export class FormModule { 
+
+}
