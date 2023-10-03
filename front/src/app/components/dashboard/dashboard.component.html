@@ -304,7 +304,7 @@
   <ng-container matColumnDef="{{column}}" *ngFor="let column of contactsToDisplay">
     <th mat-header-cell *matHeaderCellDef> {{column}} </th>
     <div *ngIf="column === 'id'">
- #other_content mat-cell *matCellDef="let element"> {{ element.createdAt | date: 'dd/MM/yyyy'}} </td>
+<td #other_content mat-cell *matCellDef="let element"> {{ element.createdAt | date: 'dd/MM/yyyy'}} </td>
 
       <td #other_content mat-cell *matCellDef="let element" class="resumen"> {{element[column]}} </td>
     </div>
