@@ -14,12 +14,13 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
 import { ChartComponent } from '../chart/chart.component';
 import {MatInputModule} from '@angular/material/input';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginator';
 import { ContactService } from 'src/app/services/contact.service';
 import { Contact } from 'src/app/interfaces/contact';
 import { FileSaverService } from 'ngx-filesaver';
 import { HttpClient } from '@angular/common/http';
 import * as FileSaver from 'file-saver';
+import { CustomPaginatorIntl } from './custom-paginator-intl';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -50,7 +51,7 @@ export class DashboardComponent implements OnInit {
 
   @ViewChild('surveyPaginator') surveyPaginator: MatPaginator;
   @ViewChild('contactPaginator') contactPaginator: MatPaginator;
-  constructor(private getService: getService, private _getContacts: ContactService, private fileSaver: FileSaverService, private http: HttpClient) { }
+  constructor(private getService: getService, private _getContacts: ContactService, private fileSaver: FileSaverService, private http: HttpClient, public _MatPaginatorIntl: MatPaginatorIntl) { }
 
 
   applyFilter() {
@@ -76,10 +77,16 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.get();
     this.getContacts();
+    this._MatPaginatorIntl.itemsPerPageLabel = 'Item por página';
+    this._MatPaginatorIntl.firstPageLabel = 'Primera página';
+    this._MatPaginatorIntl.lastPageLabel = 'Última página';
+    this._MatPaginatorIntl.nextPageLabel = 'Siguiente';
+    this._MatPaginatorIntl.previousPageLabel = 'Anterior';
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.surveyPaginator;
   this.contactSource.paginator = this.contactPaginator;
+
   }
   get() {
     this.getService.get().subscribe(token => {
