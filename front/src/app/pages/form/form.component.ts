@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {  Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import {FormBuilder, Validators, FormsModule, ReactiveFormsModule, FormGroup, FormControl} from '@angular/forms';
 import {CommonModule ,JsonPipe, NgFor, NgIf} from '@angular/common';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -6,8 +6,10 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatStepperModule} from '@angular/material/stepper';
+import {MatStepperModule, MatStepper } from '@angular/material/stepper';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatDatepickerModule} from '@angular/material/datepicker'; //SPRINT 3
+import {MatNativeDateModule} from '@angular/material/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FormService } from '../../services/form.service';
@@ -21,16 +23,21 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['form.component.css'],
   standalone: true,
   imports: [FormsModule, ReactiveFormsModule, MatCheckboxModule, JsonPipe,
-    MatCardModule, MatButtonModule, MatInputModule,
+    MatCardModule, MatButtonModule, MatInputModule, MatDatepickerModule, MatNativeDateModule,
     MatFormFieldModule, MatStepperModule, MatRadioModule, NgFor, NgIf],
 })
 export class FormComponent implements OnInit, OnDestroy{
+
+  @ViewChild(MatStepper) stepper: MatStepper;
+
 
   turista = this._formBuilder.group({
     edad: ['', Validators.required],
     sexo: ['', Validators.required],
     procedencia: ['', Validators.required],
     acompaniantes: ['', Validators.required],
+    ingreso: new FormControl(<Date | null>(null), Validators.required), // SPRINT 3
+    salida: new FormControl(<Date | null>(null), Validators.required) // SPRINT 3
   });
 
   difusion = this._formBuilder.group({
@@ -221,7 +228,37 @@ export class FormComponent implements OnInit, OnDestroy{
 
   }
   
-
+  atLeastOneCheckboxSelected(stepIndex: number): boolean {
+      switch (stepIndex) {
+      case 1: 
+        const difusionForm = this.difusion.controls; 
+        return (
+          difusionForm.television.value ||
+          difusionForm.pagina.value ||
+          difusionForm.radio.value ||
+          difusionForm.graficos.value ||
+          difusionForm.facebook.value ||
+          difusionForm.recomendacion.value ||
+          (difusionForm.otros.value && difusionForm.otros.value.trim() !== '')
+        );
+        break;
+      case 2:
+        const motivoForm = this.motivo.controls;
+        return (
+          motivoForm.conocia.value ||
+          motivoForm.recomendacion.value ||
+          motivoForm.promocion.value ||
+          motivoForm.tranquilidad.value ||
+          motivoForm.paisajes.value ||
+          motivoForm.eventos.value ||
+          motivoForm.amabilidad.value ||
+          (motivoForm.otros.value && motivoForm.otros.value.trim() !== '')
+        );
+        break;
+      default:
+        return true; 
+    }
+  }
 
   submitForm(data1:Object, data2:Object, data3:Object, data4:Object, data5:Object, data6:Object, data7:Object, data8:Object, data9:Object, data10:Object, data11:Object, data12:Object, data13:Object, data14:Object, data15:Object, data16:Object){
     
